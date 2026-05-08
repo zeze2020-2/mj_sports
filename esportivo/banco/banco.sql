@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `banco`.`usuario` (
   `usuario_sexo` VARCHAR(50) NOT NULL,
   `usuario_email` VARCHAR(100) NOT NULL,
   `usuario_senha` VARCHAR(20) NOT NULL,
+  `usuario_tipo` ENUM('org', 'usuario') NOT NULL DEFAULT 'usuario',
   PRIMARY KEY (`usuario_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;

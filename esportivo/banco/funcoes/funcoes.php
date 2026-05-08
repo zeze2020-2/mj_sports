@@ -81,7 +81,7 @@
 
     /*mesma coisa pro resto*/ 
 
-    function inserirLeitor($conexao, $cpf, $nome, $nascimento, $sexo, $email, $senha){
+    function inserirUsuario($conexao, $cpf, $nome, $nascimento, $sexo, $email, $senha){
         $sql = "INSERT INTO usuario (nome, senha, cpf, telefone, nascimento, tipo)
 			values (?, ?, ?, ?, ?, ?)";
         
@@ -90,7 +90,9 @@
         return $stmt->execute();
     }
 
-
+    function verificarOrg(){
+        return (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'org');
+    }
 
 
 ?>

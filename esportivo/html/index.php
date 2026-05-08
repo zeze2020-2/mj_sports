@@ -12,7 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="usuario/salvar_usuario.php" method="POST">
+    <form action="salvar_usuario.php" method="POST">
         Cpf: <br>
         <input type="text" name="cpf"  required > <br><br>
 
