@@ -94,5 +94,5 @@
         return (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'org');
     }
 
-
+meu pau é grande
 ?>
