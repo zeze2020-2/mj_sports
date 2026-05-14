@@ -94,6 +94,7 @@
         return (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'org');
     }
 
+<<<<<<< HEAD
     function verificarLogin(){
         return isset($_SESSION['usuario']);
     }
@@ -126,4 +127,7 @@
     
 
 
+=======
+meu pau é grande
+>>>>>>> 6a3c78b09d4554bb240eb2e34ebaa8613812fa86
 ?>
