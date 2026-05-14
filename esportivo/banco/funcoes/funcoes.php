@@ -94,5 +94,34 @@
         return (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'org');
     }
 
+    function verificarLogin(){
+        return isset($_SESSION['usuario']);
+    }
 
+    function logout(){
+        session_destroy();
+    }
+    
+    function login($conexao, $cpf, $senha){
+        $sql = "SELECT * FROM leitores WHERE cpf=? AND senha =?";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("ss", $cpf, $senha);
+        $stmt->execute();
+
+        $resultado = $stmt->get_result();
+
+        if($resultado->num_rows > 0){
+            $usuario = $resultado->fetch_assoc();
+            $_SESSION['usuario'] = $usuario['nome'];
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['tipo'] = $usuario['tipo'];
+
+            return true;
+        }
+
+        return false;
+    }
+
+    
 ?>
