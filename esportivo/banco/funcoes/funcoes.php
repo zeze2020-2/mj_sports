@@ -81,8 +81,23 @@
 
     /*mesma coisa pro resto*/ 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function inserirUsuario($conexao, $cpf, $nome, $nascimento, $sexo, $email, $senha){
-        $sql = "INSERT INTO usuario (nome, senha, cpf, telefone, nascimento, tipo)
+        $sql = "INSERT INTO usuario (usuario_cpf, usuario_nome, usuario_nascimento, usuario_sexo, usuario_email, usuario_senha)
 			values (?, ?, ?, ?, ?, ?)";
         
         $stmt = $conexao->prepare($sql);
@@ -103,7 +118,7 @@
     }
     
     function login($conexao, $cpf, $senha){
-        $sql = "SELECT * FROM leitores WHERE cpf=? AND senha =?";
+        $sql = "SELECT * FROM usuario WHERE usuario_cpf=? AND usuario_senha =?";
 
         $stmt = $conexao->prepare($sql);
         $stmt->bind_param("ss", $cpf, $senha);
@@ -113,9 +128,9 @@
 
         if($resultado->num_rows > 0){
             $usuario = $resultado->fetch_assoc();
-            $_SESSION['usuario'] = $usuario['nome'];
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['tipo'] = $usuario['tipo'];
+            $_SESSION['usuario'] = $usuario['usuario_nome'];
+            $_SESSION['id'] = $usuario['usuario_id'];
+            $_SESSION['tipo'] = $usuario['usuario_tipo'];
 
             return true; 
         }
@@ -123,7 +138,23 @@
         return false;
     }
 
+    function listarUsuario($conexao){
+        return $conexao->query("SELECT * FROM usuario");
+    }
+
+      function buscarLeitor($conexao, $id){
+        $sql = "SELECT * FROM leitores WHERE id=?";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        return $stmt->get_result();
+      }
+    
+    
     
 
 
+    
 ?>
