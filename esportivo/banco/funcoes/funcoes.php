@@ -1,97 +1,6 @@
-<?php 
-    require_once 'conexao.php';
+<?php
 
-    function verificarLogin(){
-        return isset($_SESSION['usuario']);
-    }
-    
-    function verificarAdmin(){
-        return (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'admin');
-    }
-
-    function logout(){
-        session_destroy();
-    }
-
-    function login($conexao, $cpf, $senha){
-        $sql = "SELECT * FROM leitores WHERE cpf=? AND senha =?";
-
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("ss", $cpf, $senha);
-        $stmt->execute();
-
-        $resultado = $stmt->get_result();
-
-        if($resultado->num_rows > 0){
-            $usuario = $resultado->fetch_assoc();
-            $_SESSION['usuario'] = $usuario['nome'];
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['tipo'] = $usuario['tipo'];
-
-            return true;
-        }
-
-        return false;
-    }
-    //CRUD para leitores
-    function inserirLeitor($conexao, $nome, $senha, $cpf, $telefone, $nascimento, $tipo){
-        $sql = "INSERT INTO leitores (nome, senha, cpf, telefone, nascimento, tipo)
-			values (?, ?, ?, ?, ?, ?)";
-        
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("ssssss", $nome, $senha, $cpf, $telefone, $nascimento, $tipo);
-        return $stmt->execute();
-    }
-    function listarLeitores($conexao){
-        return $conexao->query("SELECT * FROM leitores");
-    }
-    function buscarLeitor($conexao, $id){
-        $sql = "SELECT * FROM leitores WHERE id=?";
-
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-
-        return $stmt->get_result();
-
-    }
-    function buscarLeitorPorNome($conexao, $nome){
-        $sql = "SELECT * FROM leitores WHERE nome like ?";
-        $stmt = $conexao->prepare($sql);
-
-        $nomeBusca = "%".$nome."%";
-        $stmt->bind_param("s", $nomeBusca);
-        $stmt->execute();
-        
-        return $stmt->get_result();
-    }
-    function atualizarLeitor($conexao, $id, $nome, $senha, $cpf, $telefone, $nascimento, $tipo){
-        $sql = "UPDATE leitores set nome = ?, senha = ?, cpf = ?, telefone = ?, nascimento = ?, tipo = ? WHERE id = ? ";
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("ssssssi", $nome, $senha, $telefone, $nascimento, $tipo, $id);
-        return $stmt->execute();
-
-    }
-    function deletarLeitor($conexao, $id){
-        $sql = "DELETE FROM leitores WHERE id=?";
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("i", $id);
-        return $stmt->execute();
-    }
-
-    /*mesma coisa pro resto*/ 
-
-
-
-
-
-
-
-
-
-
-
-
+    //CRUD USUARIO
 
 
 
@@ -142,8 +51,8 @@
         return $conexao->query("SELECT * FROM usuario");
     }
 
-      function buscarLeitor($conexao, $id){
-        $sql = "SELECT * FROM leitores WHERE id=?";
+      function buscarUsuario($conexao, $id){
+        $sql = "SELECT * FROM usuario WHERE usuario_id=?";
 
         $stmt = $conexao->prepare($sql);
         $stmt->bind_param("i", $id);
@@ -151,10 +60,144 @@
 
         return $stmt->get_result();
       }
+      function buscarUsuarioPorNome($conexao, $nome){
+        $sql = "SELECT * FROM usuario WHERE usuario_nome like ?";
+        $stmt = $conexao->prepare($sql);
+
+        $nomeBusca = "%".$nome."%";
+        $stmt->bind_param("s", $nomeBusca);
+        $stmt->execute();
+        
+        return $stmt->get_result();
+      }
+      function atualizarUsuario($conexao, $id, $cpf, $nome, $nascimento, $sexo, $email, $senha){
+        $sql = "UPDATE usuario set cpf = ?, nome = ?, nascimento = ?, sexo = ?, email = ?, senha = ? WHERE usuario_id = ? ";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("ssssssi", $cpf, $nome, $nascimento, $sexo, $email, $senha, $id);
+        return $stmt->execute();
+
+    }
+    function deletarUsuario($conexao, $id){
+        $sql = "DELETE FROM usuario WHERE usuario_id=?";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
+    }
+    
+    
     
     
     
 
 
-    
-?>
+    //CRUD PAGAMENTO
+    // chave estrageira se der erro perguntar
+    function inserirPagamento($conexao, $forma, $data, $usuario){
+        $sql = "INSERT INTO pagamento (pagamento_forma, pagamento_data, usuario_id)
+			values (?, ?, ?)";
+        
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("sii", $forma, $data, $usuario);
+        return $stmt->execute();
+    }
+    function listarPagamento($conexao){
+        return $conexao->query("SELECT * FROM pagamento");
+    }
+    function buscarPagamento($conexao, $id){
+        $sql = "SELECT * FROM pagamento WHERE pagamento_id=?";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        return $stmt->get_result();
+      }
+      function atualizarPagamento($conexao, $id, $evento, $usuario, $forma, $data){
+        $sql = "UPDATE pagamento set pagamento_id = ?, evento_id = ?, usuario_id = ?, pagamento_forma = ?, pagamento_data = ?, WHERE pagamento_id = ? ";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("iiiss", $evento, $usuario, $forma, $data, $id);
+        return $stmt->execute();
+
+    }
+    function deletarPagamento($conexao, $id){
+        $sql = "DELETE FROM pagamento WHERE pagamento_id=?";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
+    }
+
+
+
+    //CRUD EVENTO
+
+
+
+    function inserirEvento($conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $categoria){
+        $sql = "INSERT INTO usuario (evento_nome, evento_data, evento_local, evento_modalidade, evento_inscritos, evento_valor, evento_distancia, evento_categoria)
+			values (?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("sisiiss", $conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $categoria);
+        return $stmt->execute();
+    }
+
+    function listarEvento($conexao){
+        return $conexao->query("SELECT * FROM evento");
+    }
+
+      function buscarEvento($conexao, $id){
+        $sql = "SELECT * FROM evento WHERE evento_id=?";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        return $stmt->get_result();
+      }
+      function buscarEventoPorNome($conexao, $nome){
+        $sql = "SELECT * FROM evento WHERE evento_nome like ?";
+        $stmt = $conexao->prepare($sql);
+
+        $nomeBusca = "%".$nome."%";
+        $stmt->bind_param("s", $nomeBusca);
+        $stmt->execute();
+        
+        return $stmt->get_result();
+      }
+      function atualizarEvento($conexao, $id, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $categoria){
+        $sql = "UPDATE evento set evento_nome = ?, evento_data = ?, evento_local = ?, evento_modalidade = ?, evento_inscritos = ?, evento_valor = ?, evento_distancia, event_categoria = ? = ? WHERE evento_id = ? ";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("sisiiss", $conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $categoria, $id);
+        return $stmt->execute();
+
+    }
+    function deletarEvento($conexao, $id){
+        $sql = "DELETE FROM evento WHERE evento_id=?";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
+    }
+
+    ?>
+   
