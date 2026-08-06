@@ -84,10 +84,6 @@
         return $stmt->execute();
     }
     
-    
-    
-    
-    
 
 
     //CRUD PAGAMENTO
@@ -111,25 +107,6 @@
         $stmt->execute();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 
         return $stmt->get_result();
       }

@@ -9,32 +9,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicial</title>
 </head>
 <body>
-    <form action="salvar_usuario.php" method="POST">
-        Cpf: <br>
-        <input type="text" name="cpf"  required > <br><br>
-
-        Nome Completo: <br>
-        <input type="text" name="nome"  required> <br><br>
-
-        Data de nascimento: <br>
-        <input type="date" name="nascimento"  required > <br><br>
-
-        Sexo: <br>
-        <input type="text" name="sexo"  required> <br><br>
-              
-        email: <br>
-        <input type="text" name="email"  required> <br><br>
-
-        Senha: <br>
-        <input type="text" name="senha"  required> <br><br>
-
-        <input type="submit" value="Salvar"> 
 
 
-    </form>
+ENTRAR
+
+<form method="post">
+
+email: <br>
+<input type="text" name="email" id=""><br><br>
+senha: <br>
+<input type="text" name="senha" id=""><br><br>
+
+Não possui conta?  <a href="cadastrar.php">Registre-se</a>
+
+
+
+</form>
+
+
+
 </body>
 </html>
 
