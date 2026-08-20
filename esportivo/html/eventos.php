@@ -14,7 +14,22 @@
 <body>
    <?php 
    require_once "funcoes.php";
-    echo listarEvento($conexao);
+    
+   $eventos = listarEvento($conexao);
+
+while ($evento = $eventos->fetch_assoc()) {
+    echo $evento['evento_nome'];
+    echo "/  ";
+    echo $evento['evento_data'];
+    echo "/  ";
+    echo $evento['evento_local'];
+    echo "/  ";
+    echo $evento['evento_modalidade'];
+    echo "/  ";
+    echo $evento['evento_valor'];
+
+    echo "<br><br>";
+}
 
    
 
