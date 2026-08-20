@@ -24,12 +24,14 @@ Cadastro <br><br>
     <p>Escolha seu tipo:</p>
 
 <label>
-  <input type="checkbox" name="tipo" value="organizador"> organizador
+  <input type="radio" name="tipo" value="organizador"> organizador
 </label>
 
 <label>
-  <input type="checkbox" name="tipo" value="usuario"> usuario
-</label> <br><br>
+  <input type="radio" name="tipo" value="usuario"> usuario
+</label>
+
+<br><br>
 
   Senha: <br>
     <input type="text" name="senha" placeholder="Digite sua senha:" required><br><br>

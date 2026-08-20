@@ -19,7 +19,7 @@ require_once "conexao.php";
     }
 
     function verificarLogin(){
-        return isset($_SESSION['usuario']);
+        return isset($_SESSION['usuario_id']);
     }
 
     function logout(){
