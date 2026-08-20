@@ -1,48 +1,33 @@
-<?php
-require_once 'conexao.php';
+<?php require_once 'conexao.php';
+session_start();
+require_once "funcoes.php";
 
-function verificarLogin(){
-    if (!isset($_SESSION['usuario'])) {
-        header("Location: login.php");
-    exit;
-    }
-    }
+verificarLogin();
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PERFIL</title>
+    <title>Document</title>
 </head>
 <body>
+    <?php
+    require_once "funcoes.php";
 
-    <?php require_once "funcoes.php"?>
-    
-<?php
-function listarUsuario($conexao){
-        return $conexao->query("SELECT * FROM usuario where ");
-}
+    $CPF = $_SESSION['usuario_cpf'];
+    $NOME = $_SESSION['usuario_nome'];
+    $DATA_DE_NASCIMENTO= $_SESSION['usuario_nascimento'];
+    $EMAIL = $_SESSION['usuario_email'];
+    $SENHA = $_SESSION['usuario_senha'];
 
-?>
-<!--  ABRIR SESSAO E PUXAR AS INFORMACOES DO USUARIO LOGADO -->
+    echo $CPF;
+    echo $NOME;
+    echo $DATA_DE_NASCIMENTO;
+    echo $EMAIL;
+    echo $SENHA;
 
-CPF <?php$_SESSION['usuario_cpf']?>
-NOME <?php$_SESSION['usuario_nome']?>
-DATA DE NASCIMENTO <?php$_SESSION['usuario_nascimento']?>
-EMAIL <?php$_SESSION['usuario_email']?>
-SENHA <?php$_SESSION['usuario_senha']?>
-
-
-Alterar avatar
-puxar de alguma pagina se e atleta ou adm ver dps
-
-<!--  LISTAR EVENTO CADASTRADOS -->
-
-
-
-
-    
+    ?>
 </body>
 </html>

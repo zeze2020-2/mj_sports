@@ -175,5 +175,4 @@ require_once "conexao.php";
         return $stmt->execute();
     }
 
-    ?>
    
