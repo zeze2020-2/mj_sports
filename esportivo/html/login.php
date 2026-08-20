@@ -10,7 +10,7 @@ if (isset($_POST['enviar'])){
     $sucesso = login($conexao, $cpf, $senha);
 
     if (isset($sucesso)){
-        header("Location:../home.php");
+        header("Location:home.php"); 
         exit;
     } else{
         echo "CPF ou senha incorretos.";
