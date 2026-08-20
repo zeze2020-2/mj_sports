@@ -133,3 +133,19 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+
+
+INSERT INTO usuario (usuario_cpf, usuario_nome, usuario_nascimento, usuario_sexo, usuario_email, usuario_senha) VALUES (12345678901, ze, 2020-01-01, homem, ze@sla, 123);
+
+INSERT INTO `banco`.`evento`
+(`evento_nome`, `evento_data`, `evento_local`, `evento_modalidade`, `evento_inscritos`, `evento_valor`, `evento_distancia`)
+VALUES
+('Corrida de Rua Ceres 2026', '2026-09-05 07:00:00', 'Praça Central', 'Corrida', 120, 50.00, '5 km'),
+
+('Desafio do Cerrado', '2026-09-20 06:30:00', 'Parque Municipal', 'Corrida', 250, 80.00, '10 km'),
+
+('Ciclismo Goiás', '2026-10-03 08:00:00', 'Centro Esportivo', 'Ciclismo', 180, 70.00, '30 km'),
+
+('Maratona Regional', '2026-10-18 06:00:00', 'Avenida Principal', 'Corrida', 500, 120.00, '21 km'),
+
+('Trilha Aventura Cerrado', '2026-11-07 07:30:00', 'Parque Ecológico', 'Trilha', 100, 40.00, '8 km');

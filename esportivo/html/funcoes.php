@@ -1,5 +1,5 @@
 <?php
-
+require_once "conexao.php";
     //CRUD USUARIO
 
 
@@ -39,7 +39,6 @@
             $usuario = $resultado->fetch_assoc();
             $_SESSION['usuario'] = $usuario['usuario_nome'];
             $_SESSION['id'] = $usuario['usuario_id'];
-            $_SESSION['tipo'] = $usuario['usuario_tipo'];
 
             return true; 
         }
