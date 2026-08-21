@@ -43,6 +43,8 @@ CREATE TABLE IF NOT EXISTS `banco`.`evento` (
   `evento_inscritos` INT NOT NULL,
   `evento_valor` FLOAT NOT NULL,
   `evento_distancia` VARCHAR(60) NOT NULL,
+  `evento_imagem` VARCHAR(200),
+
   PRIMARY KEY (`evento_id`))
 ENGINE = InnoDB;
 

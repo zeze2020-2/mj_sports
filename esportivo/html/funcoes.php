@@ -29,6 +29,9 @@ require_once "conexao.php";
     function login($conexao, $cpf, $senha){
         $sql = "SELECT * FROM usuario WHERE usuario_cpf=? AND usuario_senha =?";
 
+        
+
+
         $stmt = $conexao->prepare($sql);
         $stmt->bind_param("ss", $cpf, $senha);
         $stmt->execute();
@@ -129,12 +132,12 @@ require_once "conexao.php";
 
 
 
-    function inserirEvento($conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $categoria){
-        $sql = "INSERT INTO usuario (evento_nome, evento_data, evento_local, evento_modalidade, evento_inscritos, evento_valor, evento_distancia, evento_categoria)
+    function inserirEvento($conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $imagem){
+        $sql = "INSERT INTO usuario (evento_nome, evento_data, evento_local, evento_modalidade, evento_inscritos, evento_valor, evento_distancia, evento_imagem)
 			values (?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("sisiiss", $conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $categoria);
+        $stmt->bind_param("sisiiss", $conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia);
         return $stmt->execute();
     }
 

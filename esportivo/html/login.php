@@ -1,18 +1,25 @@
 <?php
 session_start();
 require_once "funcoes.php";
+require_once "conexao.php";
 
 if (isset($_POST['enviar'])){
 
-    $cpf = $_POST['usuario_cpf']??'';
-    $senha = $_POST['usuario_senha']??'';
+    $cpf = $_POST['cpf']??'';
+    $senha = $_POST['senha']??'';
 
     $sucesso = login($conexao, $cpf, $senha);
 
-    if (isset($sucesso)){
+    if ($sucesso){
+        $_SESSION['usuario_cpf'] = $cpf;
+        $_SESSION['usuario_senha'] = $senha;
+        $_SESSION['usuario_nome'] = $nome;
+        $_SESSION['usuario_nascimento'] = $nascimento;
+        $_SESSION['usuario_email'] = $email;
         header("Location:home.php"); 
         exit;
-    } else{
+    } 
+    else{
         echo "CPF ou senha incorretos.";
     }
     //} elseif($sucesso === "erro"){
@@ -34,9 +41,9 @@ if (isset($_POST['enviar'])){
     <form method="POST">
         <h3>Login</h3>
         <label>CPF:</label>
-        <input type="text" name="cpf" required><br><br>
+        <input type="text" name="cpf" required> <br><br>
         <label>Senha:</label>
-        <input type="password" name="senha" required><br><br>
+        <input type="password" name="senha" required> <br><br>
 
         <button type="submit" name="enviar">Login</button>
     </form> <br>

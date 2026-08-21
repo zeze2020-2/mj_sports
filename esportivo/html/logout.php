@@ -1,5 +1,7 @@
 <?php
 session_start();
 require_once "funcoes.php";
-logout();
+logout(){
+    header("Location:login.php")
+};
 ?>
