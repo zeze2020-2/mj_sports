@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `banco`.`evento` (
   `evento_data` DATETIME NOT NULL,
   `evento_local` VARCHAR(100) NOT NULL,
   `evento_modalidade` VARCHAR(100) NOT NULL,
-  `evento_inscritos` INT NOT NULL,
+  `evento_inscritos` INT,
   `evento_valor` FLOAT NOT NULL,
   `evento_distancia` VARCHAR(60) NOT NULL,
   `evento_imagem` VARCHAR(200),
@@ -137,7 +137,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
-INSERT INTO usuario (usuario_cpf, usuario_nome, usuario_nascimento, usuario_sexo, usuario_email, usuario_senha) VALUES (12345678901, ze, 2020-01-01, homem, ze@sla, 123);
+INSERT INTO usuario (usuario_cpf, usuario_nome, usuario_nascimento, usuario_sexo, usuario_email, usuario_senha) VALUES ("12345678901", "ze", "2020-01-01", "homem", "ze@sla", "123");
 
 INSERT INTO `banco`.`evento`
 (`evento_nome`, `evento_data`, `evento_local`, `evento_modalidade`, `evento_inscritos`, `evento_valor`, `evento_distancia`)

@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "funcoes.php";
-require_once "conexao.php";
 
 if (isset($_POST['enviar'])){
 
@@ -13,15 +12,12 @@ if (isset($_POST['enviar'])){
     if ($sucesso){
         $_SESSION['usuario_cpf'] = $cpf;
         $_SESSION['usuario_senha'] = $senha;
-        $_SESSION['usuario_nome'] = $nome;
-        $_SESSION['usuario_nascimento'] = $nascimento;
-        $_SESSION['usuario_email'] = $email;
-        header("Location:home.php"); 
+        header("Location: home.php");
         exit;
     } 
-    else{
-        echo "CPF ou senha incorretos.";
-    }
+    //else{
+      //  echo "CPF ou senha incorretos.";
+   // }
     //} elseif($sucesso === "erro"){
      //   echo "Ocorreu um erro ao realizar o login.";
     //}

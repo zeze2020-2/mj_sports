@@ -52,7 +52,14 @@
     
    <body>
 
-    <h1>Bem-vindo ao meu site!</h1>
+    <h1>Bem-vindo ao MJ Sports!</h1>
+
+    <nav>
+        <ul>
+            <li></li>
+        </ul>
+    </nav>
+
 
     <div class="cards">
 
