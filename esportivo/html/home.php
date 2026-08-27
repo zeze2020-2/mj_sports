@@ -56,7 +56,8 @@
 
     <nav>
         <ul>
-            <li></li>
+            <li><a href="evento/cad_eventos.php">Criar Evento</a></li>
+            <li><a href="evento/listar_evento.php">ver eventos</a></li>
         </ul>
     </nav>
 

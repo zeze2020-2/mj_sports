@@ -2,7 +2,28 @@
 require_once "conexao.php";
     //CRUD USUARIO
 
+    function uploadFoto ($arquivo){
+    $diretorio = '/fotos';
+    $extensao = strtolower(pathinfo($arquivo['name'], PATHINFO_EXTENSION));
+    $permitidas = ['jpg', 'jpeg', 'png'];
 
+    if(!in_array($extensao, $permitidas)){ 
+        return false;
+    }
+
+    if($arquivo['size']> 1024 * 1024 * 2){ // permite até 2MB
+        return false;
+    }
+
+    $nomeArquivo = uniqid() . "_" . $arquivo['name'];
+    $caminho = $diretorio . $nomeArquivo; // uploads/capas/13516516has5_arvore.png
+
+    if (move_uploaded_file($arquivo['tmp_name'], $caminho)){
+        return $caminho;
+    }
+
+    return false;
+}
 
 
     function inserirUsuario($conexao, $cpf, $nome, $nascimento, $sexo, $email, $senha){
@@ -133,11 +154,11 @@ require_once "conexao.php";
 
 
     function inserirEvento($conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $imagem){
-        $sql = "INSERT INTO usuario (evento_nome, evento_data, evento_local, evento_modalidade, evento_inscritos, evento_valor, evento_distancia, evento_imagem)
+        $sql = "INSERT INTO evento (evento_nome, evento_data, evento_local, evento_modalidade, evento_inscritos, evento_valor, evento_distancia, evento_imagem)
 			values (?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("sisiiss", $conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia);
+        $stmt->bind_param("sssiiiss", $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $imagem);
         return $stmt->execute();
     }
 

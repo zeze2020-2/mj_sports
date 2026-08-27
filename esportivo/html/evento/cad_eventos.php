@@ -9,6 +9,7 @@ if (isset($_POST['enviar'])) {
     $data = $_POST['evento_data'] ?? '';
     $local = $_POST['evento_local'] ?? '';
     $modalidade = $_POST['evento_modalidade'] ?? '';
+    $inscritos = $_POST['evento_inscritos'] ?? '';
     $valor = $_POST['evento_valor'] ?? '';
     $distancia = $_POST['evento_distancia'] ?? '';
     $arquivoImagem = $_FILES['capa'] ?? null;
@@ -40,7 +41,11 @@ if (isset($_POST['enviar'])) {
     </p>
     <p>
         <label>modalidade: </label><br>
-        <input type="number" name="evento_modalidade" required>
+        <input type="text" name="evento_modalidade" required>
+    </p>
+        <p>
+        <label>inscritos: </label><br>
+        <input type="text" name="evento_inscritos" required>
     </p>
     <p>
         <label>valor: </label><br>
