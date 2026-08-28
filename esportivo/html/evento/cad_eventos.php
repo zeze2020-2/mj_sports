@@ -56,7 +56,7 @@ if (isset($_POST['enviar'])) {
         <input type="text" name="evento_distancia" required>
             <p>
         <label>poster: </label><br>
-        <input type="file" name="evento_imagem" required>
+        <input type="file" name="evento_imagem">
     </p>
     </p>
     <button type="submit" name="enviar">Enviar Imagem</button>

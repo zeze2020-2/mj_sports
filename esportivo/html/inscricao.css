@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #eeeeee;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+.formulario {
+    width: 450px;
+    padding: 30px;
+
+    background-color: white;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.formulario h1 {
+    text-align: center;
+}
+
+.corrida {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+select {
+    padding: 12px;
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+button {
+    padding: 13px;
+
+    background-color: red;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+.sucesso {
+    padding: 12px;
+    margin-bottom: 20px;
+
+    background-color: #d4edda;
+    color: #155724;
+
+    border-radius: 8px;
+    text-align: center;
+}
+
+.voltar {
+    display: block;
+    margin-top: 20px;
+
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+}

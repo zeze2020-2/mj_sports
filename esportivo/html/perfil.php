@@ -14,7 +14,12 @@ verificarLogin();
     <title>PERFIL</title>
 </head>
 <body>
+    
+<!--- SELECT FROM * BANCO.USUARIO PEGAR NOME NASCIMENTO E EMAIL DO BANCO, DEPOIS WHILE
+
     <?php
+    
+    
 
     $cpf = $_SESSION['usuario_cpf'] ?? '';
     $senha = $_SESSION['usuario_senha'] ?? '';
@@ -22,25 +27,22 @@ verificarLogin();
     $nascimento = $_SESSION['usuario_nascimento'] ?? '';
     $email = $_SESSION['usuario_email'] ?? '';
 
-    echo "CPF: " . $cpf;
+    echo "CPF:" . $cpf;
     echo "<br>";
 
-    echo "Senha: " . $senha;
+    echo "Senha:" . $senha;
     echo "<br>";
 
-    echo "Nome: " . $nome;
+    echo "Nome:" . $nome;
     echo "<br>";
 
-    echo "Nascimento: " . $nascimento;
+    echo "Nascimento:" . $nascimento;
     echo "<br>";
 
-    echo "E-mail: " . $email;
+    echo "E-mail:" . $email;
     echo "<br>";
 
 
-    echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
     ?>
 
 </body>

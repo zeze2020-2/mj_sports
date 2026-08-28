@@ -6,12 +6,20 @@ if (isset($_POST['enviar'])){
 
     $cpf = $_POST['cpf']??'';
     $senha = $_POST['senha']??'';
+    $nome = $_POST['nome']??'';
+    $nascimento = $_POST['nascimento']??'';
+    $email = $_POST['email']??'';
 
-    $sucesso = login($conexao, $cpf, $senha);
+    $sucesso = login($conexao, $cpf, $senha, $nome, $nascimento, $email);
 
     if ($sucesso){
         $_SESSION['usuario_cpf'] = $cpf;
         $_SESSION['usuario_senha'] = $senha;
+
+        //BUSCAR NO BANCO
+        $_SESSION['usuario_nome'] = $nome;
+        $_SESSION['usuario_nascimento'] = $nascimento;
+        $_SESSION['usuario_email'] = $email;
         header("Location: home.php");
         exit;
     } 
@@ -43,7 +51,7 @@ if (isset($_POST['enviar'])){
 
         <button type="submit" name="enviar">Login</button>
     </form> <br>
-    Não tem conta? <a href="cadastrar.php">Registre-se</a>
+    Não tem conta? <a href="/usuario/cad_usuario.php">Registre-se</a>
     
 
 </body>

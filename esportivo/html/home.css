@@ -1,0 +1,64 @@
+body {
+    background-color: #eeeeee;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+
+    width: 280px;
+    height: 350px;
+
+    padding: 20px;
+
+    background-color: white;
+    border-radius: 15px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* CORRIDA */
+.tipo {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    background-color: red;
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+}
+
+/* TÍTULO */
+.card h2 {
+    margin-top: 50px;
+}
+
+/* BOTÃO */
+.btn-inscrever {
+    position: absolute;
+
+    bottom: 20px;
+    right: 20px;
+
+    background-color: red;
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+}
