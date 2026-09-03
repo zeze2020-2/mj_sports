@@ -15,33 +15,25 @@ verificarLogin();
 </head>
 <body>
     
-<!--- SELECT FROM * BANCO.USUARIO PEGAR NOME NASCIMENTO E EMAIL DO BANCO, DEPOIS WHILE
+
 
     <?php
+     
     
-    
-
     $cpf = $_SESSION['usuario_cpf'] ?? '';
-    $senha = $_SESSION['usuario_senha'] ?? '';
-    $nome = $_SESSION['usuario_nome'] ?? '';
-    $nascimento = $_SESSION['usuario_nascimento'] ?? '';
-    $email = $_SESSION['usuario_email'] ?? '';
+    $sql = "SELECT usuario_nascimento, usuario_nome, usuario_email, usuario_cpf, usuario_senha, usuario_sexo, usuario_tipo from banco.usuario WHERE usuario_cpf = '$cpf'";
 
-    echo "CPF:" . $cpf;
-    echo "<br>";
-
-    echo "Senha:" . $senha;
-    echo "<br>";
-
-    echo "Nome:" . $nome;
-    echo "<br>";
-
-    echo "Nascimento:" . $nascimento;
-    echo "<br>";
-
-    echo "E-mail:" . $email;
-    echo "<br>";
-
+     $resultado = $conexao->query($sql);
+     while ($usuario = $resultado->fetch_assoc()) {
+    echo "Nome: " . $usuario['usuario_nome'] . "<br>";
+    echo "Nascimento: " . $usuario['usuario_nascimento'] . "<br>";
+    echo "cpf: " . $usuario['usuario_cpf'] . "<br>";
+    echo "senha: " . $usuario['usuario_senha'] . "<br>";
+    echo "Email: " . $usuario['usuario_email'] . "<br>";
+    echo "Sexo: " . $usuario['usuario_sexo'] . "<br>";
+    echo "Tipo: " . $usuario['usuario_tipo'] . "<br>";
+    echo "<hr>";
+}
 
     ?>
 

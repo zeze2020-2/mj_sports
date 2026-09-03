@@ -55,5 +55,5 @@ if (isset($_POST['enviar'])) {
         <label> organizador<input type="radio" name="usuario_tipo" required></label><br>
     </p>
   
-    <button type="submit" name="enviar">Enviar Imagem</button>
+    <button type="submit" name="enviar">Cadastrar</button>
 </form>

@@ -1,4 +1,12 @@
+<?php 
+require_once 'conexao.php';
+session_start();
+require_once "funcoes.php";
+verificarLogin();
+?>
+
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
@@ -11,7 +19,18 @@
 </head>
 
 <body>
+    
+<?php
+ $cpf = $_SESSION['usuario_cpf'] ?? '';
+    $sql = "SELECT usuario_nascimento, usuario_nome, usuario_email, usuario_cpf, usuario_senha, usuario_sexo, usuario_tipo from banco.usuario WHERE usuario_cpf = '$cpf'";
 
+    $resultado = $conexao->query($sql);
+    while ($usuario = $resultado->fetch_assoc()) {
+   
+
+}
+?>
+<!-- pegar do perfil o metodo de puxar informaçoes para ja clicar na pagina de incriçoes e ja vir preenchido o formulario fazer o msm metodo -->
     <div class="formulario">
 
         <h1>Inscrição na corrida</h1>
@@ -22,6 +41,7 @@
 
             <label for="nome">Nome completo</label>
             <input type="text" id="nome" placeholder="Digite seu nome" required>
+    
 
             <label for="cpf">CPF</label>
             <input type="text" id="cpf" placeholder="Digite seu CPF" required>
@@ -45,7 +65,7 @@
 
         </form>
 
-        <a href="home.html" class="voltar">← Voltar</a>
+        <a href="home.php" class="voltar">← Voltar</a>
 
     </div>
 

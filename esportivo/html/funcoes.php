@@ -2,24 +2,24 @@
 require_once "conexao.php";
     //CRUD USUARIO
 
-    function uploadFoto ($arquivo){
-    $diretorio = '/fotos';
-    $extensao = strtolower(pathinfo($arquivo['name'], PATHINFO_EXTENSION));
+    function uploadFoto ($arquivoImagem){
+    $diretorio = __DIR__ . '/evento/uploads/';
+    $extensao = strtolower(pathinfo($arquivoImagem['name'], PATHINFO_EXTENSION));
     $permitidas = ['jpg', 'jpeg', 'png'];
 
     if(!in_array($extensao, $permitidas)){ 
         return false;
     }
 
-    if($arquivo['size']> 1024 * 1024 * 2){ // permite até 2MB
+    if($arquivoImagem['size']> 1024 * 1024 * 2){ // permite até 2MB
         return false;
     }
 
-    $nomeArquivo = uniqid() . "_" . $arquivo['name'];
+    $nomeArquivo = uniqid() . "_" . basename($arquivoImagem['name']);
     $caminho = $diretorio . $nomeArquivo; // uploads/capas/13516516has5_arvore.png
 
-    if (move_uploaded_file($arquivo['tmp_name'], $caminho)){
-        return $caminho;
+    if (move_uploaded_file($arquivoImagem['tmp_name'], $caminho)){
+        return $nomeArquivo;
     }
 
     return false;
@@ -153,12 +153,12 @@ require_once "conexao.php";
 
 
 
-    function inserirEvento($conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $imagem){
+    function inserirEvento($conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $arquivoImagem){
         $sql = "INSERT INTO evento (evento_nome, evento_data, evento_local, evento_modalidade, evento_inscritos, evento_valor, evento_distancia, evento_imagem)
 			values (?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("sssiiiss", $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $imagem);
+        $stmt->bind_param("ssssiiss", $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $arquivoImagem);
         return $stmt->execute();
     }
 

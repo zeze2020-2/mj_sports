@@ -7,6 +7,8 @@
    </head>
     <link rel="stylesheet" href="home.css">
 
+
+
 </head>
 
 
@@ -33,6 +35,8 @@
         <p>12.500</p>
 
         <a href="#" class="btn-inscrever">Inscrever</a>
+        <a href="inscricao.php" class="btn-inscrever">Inscrever</a>
+
     </div>
 
     <div class="card">
@@ -45,6 +49,8 @@
         <p>10.000</p>
 
         <a href="#" class="btn-inscrever">Inscrever</a>
+        <a href="inscricao.php" class="btn-inscrever">Inscrever</a>
+
     </div>
 
     <div class="card">
@@ -57,6 +63,8 @@
         <p>8.000</p>
 
         <a href="#" class="btn-inscrever">Inscrever</a>
+        <a href="inscricao.php" class="btn-inscrever">Inscrever</a>
+
     </div>
 
 </div>

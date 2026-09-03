@@ -15,6 +15,14 @@ if (isset($_POST['enviar'])) {
     $arquivoImagem = $_FILES['capa'] ?? null;
 
 
+if ($arquivoImagem) {
+    $arquivoImagem = uploadFoto($arquivoImagem);
+
+    if ($arquivoImagem === false) {
+        die("Erro ao fazer upload da imagem.");
+    }
+}
+
     $sucesso = inserirEvento($conexao, $nome, $data, $local, $modalidade, $inscritos, $valor, $distancia, $arquivoImagem);
 
     if ($sucesso) {
@@ -56,8 +64,8 @@ if (isset($_POST['enviar'])) {
         <input type="text" name="evento_distancia" required>
             <p>
         <label>poster: </label><br>
-        <input type="file" name="evento_imagem">
+        <input type="file" name="capa">
     </p>
     </p>
-    <button type="submit" name="enviar">Enviar Imagem</button>
+    <button type= "submit" name="enviar">Enviar Imagem</button>
 </form>

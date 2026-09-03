@@ -10,7 +10,7 @@ if (isset($_POST['enviar'])){
     $nascimento = $_POST['nascimento']??'';
     $email = $_POST['email']??'';
 
-    $sucesso = login($conexao, $cpf, $senha, $nome, $nascimento, $email);
+    $sucesso = login($conexao, $cpf, $senha);
 
     if ($sucesso){
         $_SESSION['usuario_cpf'] = $cpf;
@@ -23,9 +23,9 @@ if (isset($_POST['enviar'])){
         header("Location: home.php");
         exit;
     } 
-    //else{
-      //  echo "CPF ou senha incorretos.";
-   // }
+    else{
+        echo "CPF ou senha incorretos.";
+    }
     //} elseif($sucesso === "erro"){
      //   echo "Ocorreu um erro ao realizar o login.";
     //}
