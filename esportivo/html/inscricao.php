@@ -18,57 +18,61 @@ verificarLogin();
     <title>Inscrição - Corrida</title>
 </head>
 
-<body>
-    
 <?php
- $cpf = $_SESSION['usuario_cpf'] ?? '';
-    $sql = "SELECT usuario_nascimento, usuario_nome, usuario_email, usuario_cpf, usuario_senha, usuario_sexo, usuario_tipo from banco.usuario WHERE usuario_cpf = '$cpf'";
+$cpf = $_SESSION['usuario_cpf'] ?? '';
 
-    $resultado = $conexao->query($sql);
-    while ($usuario = $resultado->fetch_assoc()) {
-   
+$sql = "SELECT usuario_nascimento, usuario_nome, usuario_email, usuario_cpf, usuario_sexo, usuario_tipo 
+        FROM banco.usuario 
+        WHERE usuario_cpf = '$cpf'";
 
-}
+$resultado = $conexao->query($sql);
+
+$usuario = $resultado->fetch_assoc();
 ?>
+
+
 <!-- pegar do perfil o metodo de puxar informaçoes para ja clicar na pagina de incriçoes e ja vir preenchido o formulario fazer o msm metodo -->
-    <div class="formulario">
+    <form method="POST" action="">
 
-        <h1>Inscrição na corrida</h1>
+    <label for="nome">Nome completo</label>
+    <input 
+        type="text" 
+        id="nome" 
+        name="nome"
+        placeholder="Digite seu nome"
+        value="<?= htmlspecialchars($usuario['usuario_nome'] ?? '') ?>"
+        required
+    >
 
-        <p class="corrida">Maratona de São Paulo</p>
+    <label for="cpf">CPF</label>
+    <input 
+        type="text" 
+        id="cpf" 
+        name="cpf"
+        placeholder="Digite seu CPF"
+        value="<?= htmlspecialchars($usuario['usuario_cpf'] ?? '') ?>"
+        required
+    >
 
-        <form>
+    <label for="email">E-mail</label>
+    <input 
+        type="email" 
+        id="email" 
+        name="email"
+        placeholder="Digite seu e-mail"
+        value="<?= htmlspecialchars($usuario['usuario_email'] ?? '') ?>"
+        required
+    >
 
-            <label for="nome">Nome completo</label>
-            <input type="text" id="nome" placeholder="Digite seu nome" required>
-    
+    <label for="categoria">Categoria</label>
+    <select id="categoria" name="categoria" required>
+        <option value="">Selecione uma categoria</option>
+        <option value="42km">42 km</option>
+        <option value="21km">21 km</option>
+        <option value="10km">10 km</option>
+        <option value="5km">5 km</option>
+    </select>
 
-            <label for="cpf">CPF</label>
-            <input type="text" id="cpf" placeholder="Digite seu CPF" required>
+    <button type="submit">Confirmar inscrição</button>
 
-            <label for="email">E-mail</label>
-            <input type="email" id="email" placeholder="Digite seu e-mail" required>
-
-            <label for="telefone">Telefone</label>
-            <input type="tel" id="telefone" placeholder="Digite seu telefone" required>
-
-            <label for="categoria">Categoria</label>
-            <select id="categoria" required>
-                <option value="">Selecione uma categoria</option>
-                <option value="42km">42 km</option>
-                <option value="21km">21 km</option>
-                <option value="10km">10 km</option>
-                <option value="5km">5 km</option>
-            </select>
-
-            <button type="submit">Confirmar inscrição</button>
-
-        </form>
-
-        <a href="home.php" class="voltar">← Voltar</a>
-
-    </div>
-
-</body>
-
-</html>
+</form>

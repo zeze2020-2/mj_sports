@@ -11,7 +11,7 @@ require_once "conexao.php";
         return false;
     }
 
-    if($arquivoImagem['size']> 1024 * 1024 * 2){ // permite até 2MB
+    if($arquivoImagem['size']> 1024 * 1024 * 3){ // permite até 2MB
         return false;
     }
 

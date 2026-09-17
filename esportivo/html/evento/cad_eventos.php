@@ -19,6 +19,7 @@ if ($arquivoImagem) {
     $arquivoImagem = uploadFoto($arquivoImagem);
 
     if ($arquivoImagem === false) {
+        echo $arquivoImagem;
         die("Erro ao fazer upload da imagem.");
     }
 }

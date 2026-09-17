@@ -19,7 +19,6 @@ verificarLogin();
 
     <?php
      
-    
     $cpf = $_SESSION['usuario_cpf'] ?? '';
     $sql = "SELECT usuario_nascimento, usuario_nome, usuario_email, usuario_cpf, usuario_senha, usuario_sexo, usuario_tipo from banco.usuario WHERE usuario_cpf = '$cpf'";
 
@@ -31,7 +30,6 @@ verificarLogin();
     echo "senha: " . $usuario['usuario_senha'] . "<br>";
     echo "Email: " . $usuario['usuario_email'] . "<br>";
     echo "Sexo: " . $usuario['usuario_sexo'] . "<br>";
-    echo "Tipo: " . $usuario['usuario_tipo'] . "<br>";
     echo "<hr>";
 }
 
