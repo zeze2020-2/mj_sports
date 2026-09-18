@@ -38,11 +38,14 @@ require_once "conexao.php";
     function verificarOrg(){
         return (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'org');
     }
-
+       
+    
     function verificarLogin(){
-        return isset($_SESSION['usuario_id']);
+    if (!isset($_SESSION['usuario'])) {
+        header("Location: login.php");
+    exit;
     }
-
+}
     function logout(){
         session_destroy();
     }

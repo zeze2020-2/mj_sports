@@ -21,6 +21,7 @@ while ($l = $eventos->fetch_assoc()) {
                width='300'>";
 
     echo "<hr>";
+    
 }
 
 ?>

@@ -37,7 +37,7 @@ if ($arquivoImagem) {
 
 <form method="POST" enctype="multipart/form-data">
     <p>
-        <label>nome: </label><br>
+        <label> Nome do evento: </label><br>
         <input type="text" name="evento_nome" required>
     </p>
     <p>
@@ -45,28 +45,28 @@ if ($arquivoImagem) {
         <input type="date" name="evento_data" required> 
     </p>
     <p>
-        <label>local: </label><br>
+        <label>Local: </label><br>
         <input type="text" name="evento_local" required>
     </p>
     <p>
-        <label>modalidade: </label><br>
+        <label>Modalidade: </label><br>
         <input type="text" name="evento_modalidade" required>
     </p>
         <p>
-        <label>inscritos: </label><br>
+        <label>Número de inscritos: </label><br>
         <input type="text" name="evento_inscritos" required>
     </p>
     <p>
-        <label>valor: </label><br>
+        <label> Valor da incrição: </label><br>
         <input type="text" name="evento_valor" required>
     </p>
         <p>
-        <label>distancia: </label><br>
+        <label> Distancia da prova: </label><br>
         <input type="text" name="evento_distancia" required>
             <p>
-        <label>poster: </label><br>
+        <label> Poster: </label><br>
         <input type="file" name="capa">
     </p>
     </p>
-    <button type= "submit" name="enviar">Enviar Imagem</button>
+    <button type= "submit" name="enviar">Enviar o poster do evento</button>
 </form>

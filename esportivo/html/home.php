@@ -1,3 +1,10 @@
+<?php
+session_start();
+require_once "conexao.php";
+require_once "funcoes.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,46 +32,64 @@
 
     <div class="cards">
 
-    <div class="card">
-        <span class="tipo">Corrida</span>
+    
+    <?php
+    $sql = "SELECT * FROM evento ORDER BY evento_data ASC";
+    $resultado = $conexao->query($sql);
+    ?>
 
-        <h2>Maratona de São Paulo</h2>
-        <p>14 de junho de 2026</p>
-        <p>São Paulo</p>
-        <p>42km</p>
-        <p>12.500</p>
+    <?php while ($evento = $resultado->fetch_assoc()): ?>
 
-        <a href="#" class="btn-inscrever">Inscrever</a>
-        <a href="inscricao.php" class="btn-inscrever">Inscrever</a>
+        <div class="card">
 
-    </div>
+            <span class="tipo">
+                <?= htmlspecialchars($evento['evento_modalidade']) ?>
+            </span>
 
-    <div class="card">
-        <span class="tipo">Corrida</span>
+            <?php if (!empty($evento['evento_imagem'])): ?>
+                <img 
+                    src="evento/uploads/ <?= htmlspecialchars($evento['evento_imagem']) ?>" 
+                    alt="<?= htmlspecialchars($evento['evento_nome']) ?>"
+                >
+            <?php endif; ?>
 
-        <h2>Maratona do Rio</h2>
-        <p>20 de julho de 2026</p>
-        <p>Rio de Janeiro</p>
-        <p>42km</p>
-        <p>10.000</p>
+            <h2>
+                <?= htmlspecialchars($evento['evento_nome']) ?>
+            </h2>
 
-        <a href="#" class="btn-inscrever">Inscrever</a>
-        <a href="inscricao.php" class="btn-inscrever">Inscrever</a>
+            <p>
+                <?= date('d/m/Y H:i', strtotime($evento['evento_data'])) ?>
+            </p>
 
-    </div>
+            <p>
+                <?= htmlspecialchars($evento['evento_local']) ?>
+            </p>
 
-    <div class="card">
-        <span class="tipo">Corrida</span>
+            <p>
+                <?= htmlspecialchars($evento['evento_distancia']) ?>
+            </p>
 
-        <h2>Maratona de Brasília</h2>
-        <p>10 de agosto de 2026</p>
-        <p>Brasília</p>
-        <p>42km</p>
-        <p>8.000</p>
+            <p>
+                <?= htmlspecialchars($evento['evento_inscritos'] ?? 0) ?> inscritos
+            </p>
 
-        <a href="#" class="btn-inscrever">Inscrever</a>
-        <a href="inscricao.php" class="btn-inscrever">Inscrever</a>
+            <p>
+                R$ <?= number_format($evento['evento_valor'], 2, ',', '.') ?>
+            </p>
 
-    </div>
+            <a 
+                href="inscricao.php?id=<?= $evento['evento_id'] ?>" 
+                class="btn-inscrever"
+            >
+                Inscrever
+            </a>
 
+        </div>
+
+    <?php endwhile; ?>
+
+
+    
+
+  
 </div>

@@ -27,27 +27,32 @@ if (isset($_POST['enviar'])) {
 
 <form method="POST" enctype="multipart/form-data">
     <p>
-        <label>cpf: </label><br>
+        <label>CPF: </label><br>
         <input type="text" name="usuario_cpf" required>
     </p>
     <p>
-        <label>nome: </label><br>
+        <label>Nome: </label><br>
         <input type="text" name="usuario_nome" required> 
     </p>
     <p>
-        <label>nascimento: </label><br>
+        <label>Data de nascimento: </label><br>
         <input type="date" name="usuario_nascimento" required>
     </p>
     <p>
-        <label>sexo: </label><br>
-        <input type="text" name="usuario_sexo" required>
+        <label>Gênero: </label><br>
+        <select>
+        <option>Prefiro não dizer</option>
+        <option>Homem</option>
+        <option>Mulher</option>
+</select>
+
     </p>
         <p>
-        <label>email: </label><br>
+        <label> Email: </label><br>
         <input type="text" name="usuario_email" required>
     </p>
     <p>
-        <label>senha: </label><br>
+        <label> Senha: </label><br>
         <input type="text" name="usuario_senha" required>
     </p>
         <p>

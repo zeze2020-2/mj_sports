@@ -75,4 +75,4 @@ $usuario = $resultado->fetch_assoc();
 
     <button type="submit">Confirmar inscrição</button>
 
-</form>
+    

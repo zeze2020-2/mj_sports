@@ -1,6 +1,6 @@
-<?php 
-require_once 'conexao.php';
+<?php
 session_start();
+require_once "conexao.php";
 require_once "funcoes.php";
 
 verificarLogin();
@@ -11,7 +11,7 @@ verificarLogin();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PERFIL</title>
+    <title>Perfil</title>
 </head>
 <body>
     
