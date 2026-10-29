@@ -31,8 +31,9 @@ $usuario = $resultado->fetch_assoc();
 ?>
 
 
+
 <!-- pegar do perfil o metodo de puxar informaçoes para ja clicar na pagina de incriçoes e ja vir preenchido o formulario fazer o msm metodo -->
-    <form method="POST" action="">
+    <form method="POST" action="home.php">
 
     <label for="nome">Nome completo</label>
     <input 

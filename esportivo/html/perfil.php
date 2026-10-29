@@ -13,10 +13,9 @@ verificarLogin();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
 </head>
+
 <body>
     
-
-
     <?php
      
     $cpf = $_SESSION['usuario_cpf'] ?? '';

@@ -51,7 +51,7 @@ if (isset($_POST['enviar'])){
 
         <button type="submit" name="enviar">Login</button>
     </form> <br>
-    Não tem conta? <a href="/usuario/cad_usuario.php">Registre-se</a>
+    Não tem conta? <a href="usuario/cad_usuario.php">Registre-se</a>
     
 
 </body>

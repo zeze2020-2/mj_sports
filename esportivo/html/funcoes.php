@@ -202,4 +202,18 @@ require_once "conexao.php";
         return $stmt->execute();
     }
 
+    function inserirInscricao($conexao, $evento_id, $usuario_id) {
+    $sql = "INSERT INTO inscricoes (evento_id, usuario_id)
+            VALUES (?, ?)";
+
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ii", $evento_id, $usuario_id);
+
+    return $stmt->execute();
+}
+
+        function listarInscricao($conexao){
+        return $conexao->query("SELECT * FROM inscricoes");
+    }
+
    
