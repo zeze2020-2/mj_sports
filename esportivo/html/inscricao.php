@@ -3,7 +3,25 @@ require_once 'conexao.php';
 session_start();
 require_once "funcoes.php";
 verificarLogin();
+
+$usuario_id = $_SESSION['id'];
+$evento_id = $_GET['id'];
+
+if (isset($_POST['enviar'])) {
+
+    $inscrever = inserirInscricao( $conexao, $evento_id, $usuario_id);
+
+    if (isset($inscrever)){
+        header('location: perfil.php' );
+
+    } else{
+
+        alert('Erro');
+    }
+    
+}
 ?>
+
 
 <!DOCTYPE html>
 
@@ -33,7 +51,7 @@ $usuario = $resultado->fetch_assoc();
 
 
 <!-- pegar do perfil o metodo de puxar informaçoes para ja clicar na pagina de incriçoes e ja vir preenchido o formulario fazer o msm metodo -->
-    <form method="POST" action="home.php">
+    <form method="POST">
 
     <label for="nome">Nome completo</label>
     <input 
@@ -74,6 +92,7 @@ $usuario = $resultado->fetch_assoc();
         <option value="5km">5 km</option>
     </select>
 
-    <button type="submit">Confirmar inscrição</button>
+    <button type="submit" name = "enviar" >Confirmar inscrição</button>
+    </form>
 
     
