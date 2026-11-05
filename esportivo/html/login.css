@@ -1,0 +1,120 @@
+/* ===== Variáveis: mude aqui para personalizar as cores ===== */
+:root {
+    --cor-fundo: #eeeeee;
+    --cor-painel: white;
+    --cor-texto: black;
+    --cor-texto-suave: black;
+    --cor-borda: black;
+    --cor-destaque: #1bbfd1;
+    --cor-destaque-escura: #1bbfd1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 4rem 1rem;
+    background: var(--cor-fundo);
+    color: var(--cor-texto-suave);
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    text-align: center; /* centraliza o "Não tem conta?" embaixo do cartão */
+}
+
+/* Os <br> do HTML não são mais necessários: o espaçamento vem das margens */
+br {
+    display: none;
+}
+
+/* ===== Cartão do formulário ===== */
+form {
+    max-width: 380px;
+    margin: 0 auto 1.5rem;
+    padding: 2.5rem 2rem;
+    background: var(--cor-painel);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(27, 39, 51, 0.12);
+    text-align: left;
+    color: var(--cor-texto);
+}
+
+h3 {
+    margin: 0 0 1.75rem;
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--cor-destaque);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 3px rgba(15, 110, 140, 0.25);
+}
+
+button {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    border: 0;
+    border-radius: 6px;
+    background: var(--cor-destaque);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+button:hover {
+    background: var(--cor-destaque-escura);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+/* ===== Link "Registre-se" ===== */
+a {
+    color: var(--cor-destaque);
+    font-weight: 600;
+}
+
+a:hover {
+    color: var(--cor-destaque-escura);
+}
+
+/* ===== Celular ===== */
+@media (max-width: 480px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+
+    form {
+        padding: 2rem 1.25rem;
+    }
+}

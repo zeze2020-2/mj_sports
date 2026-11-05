@@ -50,10 +50,15 @@ if ($arquivoImagem) {
     </p>
     <p>
         <label>Modalidade: </label><br>
-        <input type="text" name="evento_modalidade" required>
+        <select>
+        <option> Caminhada </option>
+        <option> Ciclismo </option>
+        <option> Maratona </option>
+       
+</select>
     </p>
         <p>
-        <label>Número de inscritos: </label><br>
+        <label> Número máximo de participantes : </label><br>
         <input type="text" name="evento_inscritos" required>
     </p>
     <p>

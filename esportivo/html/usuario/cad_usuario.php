@@ -41,8 +41,8 @@ if (isset($_POST['enviar'])) {
         <label>Gênero: </label><br>
         <select>
         <option>Prefiro não dizer</option>
-        <option>Homem</option>
-        <option>Mulher</option>
+        <option> Homem</option>
+        <option> Mulher</option>
 </select>
 
     </p>

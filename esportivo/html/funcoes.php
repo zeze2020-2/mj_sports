@@ -210,10 +210,34 @@ require_once "conexao.php";
     $stmt->bind_param("ii", $evento_id, $usuario_id);
 
     return $stmt->execute();
-}
+    }
+
 
         function listarInscricao($conexao){
         return $conexao->query("SELECT * FROM inscricoes");
     }
+
+
+        function eventosUsuario($conexao, $id) {
+
+        $sql = "SELECT e.evento_nome, e.evento_data, e.evento_local FROM inscricoes i
+        INNER JOIN evento e ON i.evento_id = e.evento_id WHERE i.usuario_id = ?
+        ORDER BY e.evento_data ASC";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        $resultado = $stmt->get_result();
+
+        $eventos = [];
+        while ($linha = $resultado->fetch_assoc()) {
+        $eventos[] = $linha;
+        }
+
+        $stmt->close();
+
+        return $eventos;
+}
 
    
