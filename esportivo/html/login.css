@@ -1,120 +1,334 @@
-/* ===== Variáveis: mude aqui para personalizar as cores ===== */
+/* ==========================================
+   LOGIN CSS - OXYSCRONO PREMIUM
+========================================== */
+
+/* ===== VARIÁVEIS ===== */
+
 :root {
-    --cor-fundo: #eeeeee;
-    --cor-painel: white;
-    --cor-texto: black;
-    --cor-texto-suave: black;
-    --cor-borda: black;
-    --cor-destaque: #1bbfd1;
-    --cor-destaque-escura: #1bbfd1;
+    --cor-fundo: #080a12;
+    --cor-painel: #131a2b;
+    --cor-texto: #ffffff;
+    --cor-texto-suave: #a1a9bd;
+    --cor-borda: #303951;
+
+    --cor-destaque: #7957ff;
+    --cor-destaque-escura: #13c9e8;
+
+    --roxo: #7957ff;
+    --ciano: #13c9e8;
 }
 
 * {
     box-sizing: border-box;
 }
 
+/* ===== FUNDO ===== */
+
 body {
     margin: 0;
     padding: 4rem 1rem;
-    background: var(--cor-fundo);
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(121, 87, 255, .17), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(19, 201, 232, .12), transparent 40%),
+        var(--cor-fundo);
+
     color: var(--cor-texto-suave);
-    font-family: Arial, sans-serif;
+
+    font-family: 'Segoe UI', Arial, sans-serif;
+
     line-height: 1.5;
-    text-align: center; /* centraliza o "Não tem conta?" embaixo do cartão */
+    text-align: center;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Os <br> do HTML não são mais necessários: o espaçamento vem das margens */
+/* ===== QUEBRAS DE LINHA ===== */
+
 br {
     display: none;
 }
 
-/* ===== Cartão do formulário ===== */
+/* ===== CARTÃO DO FORMULÁRIO ===== */
+
 form {
-    max-width: 380px;
+    position: relative;
+
+    width: 100%;
+    max-width: 400px;
+
     margin: 0 auto 1.5rem;
+
     padding: 2.5rem 2rem;
-    background: var(--cor-painel);
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(27, 39, 51, 0.12);
+
+    background: linear-gradient(
+        145deg,
+        #192137,
+        #101626
+    );
+
+    border: 1px solid rgba(121, 87, 255, .25);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, .4),
+        0 0 25px rgba(121, 87, 255, .08);
+
     text-align: left;
+
     color: var(--cor-texto);
+
+    overflow: hidden;
+
+    animation: aparecer .6s ease both;
 }
+
+/* Linha neon superior */
+
+form::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--roxo),
+        var(--ciano),
+        transparent
+    );
+}
+
+/* ===== TÍTULO ===== */
 
 h3 {
     margin: 0 0 1.75rem;
-    font-size: 1.6rem;
+
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    letter-spacing: -.8px;
+
     text-align: center;
-    color: var(--cor-destaque);
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #a78bfa,
+        #13c9e8
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+/* ===== LABEL ===== */
 
 label {
     display: block;
-    margin-bottom: 0.35rem;
-    font-weight: 600;
-    font-size: 0.95rem;
+
+    margin-bottom: .5rem;
+
+    color: #e4e8f5;
+
+    font-weight: 700;
+    font-size: .9rem;
 }
+
+/* ===== CAMPOS ===== */
 
 input[type="text"],
 input[type="password"] {
     display: block;
+
     width: 100%;
-    margin-bottom: 1.25rem;
-    padding: 0.75rem 0.9rem;
+
+    margin-bottom: 1.4rem;
+
+    padding: .85rem 1rem;
+
     border: 1px solid var(--cor-borda);
-    border-radius: 6px;
-    background: #fff;
-    color: inherit;
-    font: inherit;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    border-radius: 9px;
+
+    background: #0b1020;
+
+    color: white;
+
+    font-family: inherit;
+    font-size: .95rem;
+
+    transition: all .3s ease;
 }
+
+/* Placeholder */
+
+input::placeholder {
+    color: #68738c;
+}
+
+/* Campo selecionado */
 
 input[type="text"]:focus,
 input[type="password"]:focus {
     outline: none;
-    border-color: var(--cor-destaque);
-    box-shadow: 0 0 0 3px rgba(15, 110, 140, 0.25);
+
+    border-color: var(--roxo);
+
+    background: #10172b;
+
+    box-shadow:
+        0 0 0 3px rgba(121, 87, 255, .12),
+        0 0 15px rgba(121, 87, 255, .12);
 }
+
+/* ===== BOTÃO ===== */
 
 button {
     width: 100%;
-    margin-top: 0.5rem;
-    padding: 0.8rem;
-    border: 0;
-    border-radius: 6px;
-    background: var(--cor-destaque);
-    color: #fff;
-    font: inherit;
-    font-weight: 600;
+
+    margin-top: .5rem;
+
+    padding: .9rem;
+
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 9px;
+
+    background: linear-gradient(
+        120deg,
+        var(--roxo),
+        #386dff
+    );
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 800;
+
     cursor: pointer;
-    transition: background 0.15s;
+
+    box-shadow: 0 5px 20px rgba(121, 87, 255, .2);
+
+    transition: all .3s ease;
 }
 
 button:hover {
-    background: var(--cor-destaque-escura);
+    background: linear-gradient(
+        120deg,
+        #9879ff,
+        var(--ciano)
+    );
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 25px rgba(121, 87, 255, .35);
+}
+
+button:active {
+    transform: scale(.98);
 }
 
 button:focus-visible {
-    outline: 3px solid var(--cor-destaque);
-    outline-offset: 2px;
+    outline: 3px solid var(--ciano);
+    outline-offset: 3px;
 }
 
-/* ===== Link "Registre-se" ===== */
+/* ===== LINKS ===== */
+
 a {
-    color: var(--cor-destaque);
-    font-weight: 600;
+    color: var(--ciano);
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .3s ease;
 }
 
 a:hover {
-    color: var(--cor-destaque-escura);
+    color: #a78bfa;
+
+    text-shadow: 0 0 12px rgba(121, 87, 255, .4);
 }
 
-/* ===== Celular ===== */
+/* ===== ANIMAÇÃO ===== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===== SELEÇÃO ===== */
+
+::selection {
+    background: var(--roxo);
+    color: white;
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cor-fundo);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        var(--roxo),
+        var(--ciano)
+    );
+
+    border-radius: 10px;
+}
+
+/* ===== CELULAR ===== */
+
 @media (max-width: 480px) {
+
     body {
         padding: 1.5rem 1rem;
     }
 
     form {
         padding: 2rem 1.25rem;
+        border-radius: 15px;
+    }
+
+    h3 {
+        font-size: 1.55rem;
+    }
+}
+
+/* ===== REDUZIR ANIMAÇÕES ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
     }
 }

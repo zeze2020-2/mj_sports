@@ -15,6 +15,8 @@ $eventos = eventosUsuario($conexao, $id);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
+        <link rel="stylesheet" href="perfil.css">
+
 </head>
 
 <body>
@@ -49,7 +51,7 @@ $eventos = eventosUsuario($conexao, $id);
 
     //  }
 
-    echo "<h2>Meus eventos inscritos</h2>";
+    echo "<h2>Minhas Inscrições</h2>";
 
     if (count($eventos) > 0) {
 

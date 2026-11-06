@@ -2,7 +2,6 @@
 session_start();
 require_once '../funcoes.php';
 verificarLogin();
-
 if (isset($_POST['enviar'])) {
     // Obter e remover espaços em branco das extremidades
     $nome = $_POST['evento_nome'] ?? '';
@@ -75,3 +74,4 @@ if ($arquivoImagem) {
     </p>
     <button type= "submit" name="enviar">Enviar o poster do evento</button>
 </form>
+
