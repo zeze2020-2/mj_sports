@@ -1,7 +1,8 @@
 <?php
 session_start();
 require_once '../funcoes.php';
-
+verificarLogin();
+echo($_SESSION['usuario_nome']);
 
 $eventos = listarEvento($conexao);
 while ($l = $eventos->fetch_assoc()) {

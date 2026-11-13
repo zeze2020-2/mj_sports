@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../funcoes.php';
+verificarLogin();
 
 if (isset($_POST['enviar'])) {
     // Obter e remover espaços em branco das extremidades

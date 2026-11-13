@@ -41,7 +41,8 @@ require_once "conexao.php";
        
     
     function verificarLogin(){
-    if (!isset($_SESSION['usuario'])) {
+    if (!isset($_SESSION['usuario_nome'])) {
+        
         header("Location: login.php");
     exit;
     }

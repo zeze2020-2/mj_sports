@@ -1,0 +1,191 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #101010;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CABEÇALHO */
+header {
+    height: 90px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    background: #080808;
+    border-bottom: 2px solid #ff6b00;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ff6b00;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 70px 12%;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.98) 0%,
+            rgba(0,0,0,.85) 45%,
+            rgba(0,0,0,.35) 100%
+        ),
+        url("corrida.jpg") center/cover no-repeat;
+}
+
+.conteudo {
+    max-width: 650px;
+    position: relative;
+    z-index: 1;
+}
+
+/* SUBTÍTULO */
+.subtitulo {
+    color: #ff6b00;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+/* TÍTULO */
+h1 {
+    font-size: clamp(55px, 8vw, 95px);
+    font-weight: 900;
+    line-height: .95;
+    margin: 25px 0;
+    font-style: italic;
+}
+
+h1 span {
+    color: #ff6b00;
+}
+
+/* DESCRIÇÃO */
+.conteudo p {
+    max-width: 480px;
+    color: #bbb;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* BOTÃO DE ACESSO */
+.botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    padding: 18px 30px;
+    background: #ff6b00;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.botao span {
+    font-size: 22px;
+}
+
+.botao:hover {
+    background: white;
+    color: #111;
+    transform: translateY(-4px);
+}
+
+/* DESTAQUE LATERAL */
+.destaque {
+    position: absolute;
+    right: 8%;
+    bottom: 50px;
+    text-align: right;
+}
+
+.numero {
+    font-size: 100px;
+    font-weight: 900;
+    color: rgba(255,107,0,.7);
+}
+
+.destaque p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #ddd;
+}
+
+/* RODAPÉ */
+footer {
+    padding: 22px;
+    text-align: center;
+    background: #080808;
+    border-top: 1px solid #292929;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 700px) {
+
+    header {
+        height: 75px;
+        padding: 0 6%;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    main {
+        min-height: 650px;
+        padding: 50px 8%;
+        background-position: center;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+
+    .subtitulo {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .conteudo p {
+        font-size: 15px;
+    }
+
+    .destaque {
+        right: 8%;
+        bottom: 25px;
+    }
+
+    .numero {
+        font-size: 60px;
+    }
+
+    footer {
+        font-size: 10px;
+    }
+}

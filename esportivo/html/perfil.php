@@ -22,6 +22,7 @@ $eventos = eventosUsuario($conexao, $id);
 <body>
     
     <?php
+
      
     $cpf = $_SESSION['usuario_cpf'] ?? '';
     $sql = "SELECT usuario_nascimento, usuario_nome, usuario_email, usuario_cpf, usuario_senha, usuario_sexo, usuario_tipo from banco.usuario WHERE usuario_cpf = '$cpf'";

@@ -3,6 +3,7 @@
 //session_start();
 require_once "conexao.php";
 require_once "funcoes.php";
+verificarLogin();
 
 // Captura a categoria selecionada
 $selecionada = trim($_GET['categoria'] ?? '');
@@ -29,6 +30,8 @@ if ($selecionada !== '') {
     $sql = "SELECT * FROM evento ORDER BY evento_data ASC";
     $resultadoEvento = $conexao->query($sql);
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +68,7 @@ if ($selecionada !== '') {
 
         
 <?php
+
 
 //echo '<a href="home.php" class="btn-filtro">Todas</a>';
 

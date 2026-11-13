@@ -1,5 +1,9 @@
+<link rel="stylesheet" href="cad_eventos.css">
+
+
+
 <?php
-session_start();
+
 require_once '../funcoes.php';
 verificarLogin();
 if (isset($_POST['enviar'])) {
@@ -48,11 +52,11 @@ if ($arquivoImagem) {
         <input type="text" name="evento_local" required>
     </p>
     <p>
-        <label>Modalidade: </label><br>
-        <select>
-        <option> Caminhada </option>
-        <option> Ciclismo </option>
-        <option> Maratona </option>
+        <label >Modalidade: </label><br>
+        <select  name = "evento_modalidade">
+        <option name = "evento_modalidade" > Ciclismo </option>
+        <option name = "evento_modalidade"> Corrida </option>
+        <option name = "evento_modalidade"> Maratona </option>
        
 </select>
     </p>
