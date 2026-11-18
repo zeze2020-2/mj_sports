@@ -63,11 +63,10 @@ if (isset($_POST['enviar'])) {
     <p>
         <label> Senha: </label><br>
         <input type="text" name="usuario_senha" required>
-    </p>
-        <p>
-        <label>usuário <input type="radio" name="usuario_tipo" required> </label><br>
-        <label> organizador<input type="radio" name="usuario_tipo" required></label><br>
-    </p>
+    <p>
+    <label>Tipo de Conta:</label><br>
+    <input type="text" value="Usuário" readonly>
+</p>
   
     <button type="submit" name="enviar">Cadastrar</button>
 </form>
