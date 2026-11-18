@@ -1,38 +1,31 @@
 <?php
-session_start();
+
+ob_start();
+
 require_once "funcoes.php";
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-if (isset($_POST['cpf'])){
+if (isset($_POST['cpf'])) {
 
-    $cpf = $_POST['cpf']??'';
-    $senha = $_POST['senha']??'';
-    $nome = $_POST['nome']??'';
-    $nascimento = $_POST['nascimento']??'';
-    $email = $_POST['email']??'';
+    $cpf = $_POST['cpf'] ?? '';
+    $senha = $_POST['senha'] ?? '';
 
     $sucesso = login($conexao, $cpf, $senha);
 
-    if ($sucesso){
-        $_SESSION['usuario_cpf'] = $cpf;
-        $_SESSION['usuario_senha'] = $senha;
+    if ($sucesso) {
 
-        //BUSCAR NO BANCO
-        $_SESSION['usuario_nome'] = $nome;
-        $_SESSION['usuario_nascimento'] = $nascimento;
-        $_SESSION['usuario_email'] = $email;
-        header("Location: home.php?login=1");
+        header("Location: home.php");
         exit;
-    } 
-    else{
-        echo "<script>alert('CPF ou senha incorretos.')</script>";
-    }
-    //} elseif($sucesso === "erro"){
-     //   echo "Ocorreu um erro ao realizar o login.";
-    //}
 
+    } else {
+        $erro = true;
+    }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -76,7 +69,7 @@ if (isset($_POST['cpf'])){
 
             </div>
 
-            <form action="login.php" method="POST">
+            <form action="" method="POST">
 
                 <div class="campo">
 

@@ -1,8 +1,8 @@
-
 <?php
-//session_start();
-require_once "conexao.php";
+ob_start();
+
 require_once "funcoes.php";
+
 verificarLogin();
 
 // Captura a categoria selecionada

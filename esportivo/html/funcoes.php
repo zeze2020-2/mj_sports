@@ -38,10 +38,32 @@ require_once "conexao.php";
     function verificarOrg(){
         return (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'org');
     }
+    function login($conexao, $cpf, $senha){
+        $sql = "SELECT * FROM usuario WHERE usuario_cpf=? AND usuario_senha =?";
+    
+        
+    
+    
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("ss", $cpf, $senha);
+        $stmt->execute();
+    
+        $resultado = $stmt->get_result();
+    
+        if($resultado->num_rows > 0){
+            $usuario = $resultado->fetch_assoc();
+            $_SESSION['usuario_nome'] = $usuario['usuario_nome'];
+            $_SESSION['id'] = $usuario['usuario_id'];
+    
+            return true; 
+        }
+    
+        return false;
+    }
        
     
     function verificarLogin(){
-    if (!isset($_SESSION['usuario_nome'])) {
+    if (isset($_SESSION['usuario_nome'])) {
         
         header("Location: login.php");
     exit;
@@ -51,28 +73,6 @@ require_once "conexao.php";
         session_destroy();
     }
     
-    function login($conexao, $cpf, $senha){
-        $sql = "SELECT * FROM usuario WHERE usuario_cpf=? AND usuario_senha =?";
-
-        
-
-
-        $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("ss", $cpf, $senha);
-        $stmt->execute();
-
-        $resultado = $stmt->get_result();
-
-        if($resultado->num_rows > 0){
-            $usuario = $resultado->fetch_assoc();
-            $_SESSION['usuario'] = $usuario['usuario_nome'];
-            $_SESSION['id'] = $usuario['usuario_id'];
-
-            return true; 
-        }
-
-        return false;
-    }
 
     function listarUsuario($conexao){
         return $conexao->query("SELECT * FROM usuario");
@@ -239,6 +239,8 @@ require_once "conexao.php";
         $stmt->close();
 
         return $eventos;
-}
+} 
+
+?>
 
    
