@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once '../funcoes.php';
 
 if (isset($_POST['enviar'])) {
@@ -27,8 +26,19 @@ if (isset($_POST['enviar'])) {
 <form method="POST" enctype="multipart/form-data">
     <p>
         <label>CPF: </label><br>
-        <input type="text" name="usuario_cpf" required>
+        <input type="text" name="usuario_cpf" id="cpf" maxlength="14"required>
+
+        <script>
+            document.getElementById('cpf').addEventListener('input', function() {
+            this.value = this.value
+                .replace(/\D/g, '')
+                .replace(/(\d{3})(\d)/, '$1.$2')
+                .replace(/(\d{3})(\d)/, '$1.$2')
+                .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            });
+        </script>
     </p>
+
     <p>
         <label>Nome: </label><br>
         <input type="text" name="usuario_nome" required> 
@@ -41,8 +51,8 @@ if (isset($_POST['enviar'])) {
         <label>Gênero: </label><br>
         <select>
         <option>Prefiro não dizer</option>
-        <option>Homem</option>
-        <option>Mulher</option>
+        <option> Homem</option>
+        <option> Mulher</option>
 </select>
 
     </p>

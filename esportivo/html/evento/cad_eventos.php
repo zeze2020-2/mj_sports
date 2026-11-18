@@ -1,8 +1,11 @@
+<link rel="stylesheet" href="cad_eventos.css">
+
+
+
 <?php
-session_start();
+
 require_once '../funcoes.php';
 verificarLogin();
-
 if (isset($_POST['enviar'])) {
     // Obter e remover espaços em branco das extremidades
     $nome = $_POST['evento_nome'] ?? '';
@@ -49,11 +52,16 @@ if ($arquivoImagem) {
         <input type="text" name="evento_local" required>
     </p>
     <p>
-        <label>Modalidade: </label><br>
-        <input type="text" name="evento_modalidade" required>
+        <label >Modalidade: </label><br>
+        <select  name = "evento_modalidade">
+        <option name = "evento_modalidade" > Ciclismo </option>
+        <option name = "evento_modalidade"> Corrida </option>
+        <option name = "evento_modalidade"> Maratona </option>
+       
+</select>
     </p>
         <p>
-        <label>Número de inscritos: </label><br>
+        <label> Número máximo de participantes : </label><br>
         <input type="text" name="evento_inscritos" required>
     </p>
     <p>
@@ -70,3 +78,4 @@ if ($arquivoImagem) {
     </p>
     <button type= "submit" name="enviar">Enviar o poster do evento</button>
 </form>
+

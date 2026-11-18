@@ -1,95 +1,358 @@
+/* ==========================================
+   FORMULÁRIO - OXYSCRONO PREMIUM STYLE
+========================================== */
+
+:root {
+    --background: #080a12;
+    --card: #131a2b;
+    --primary: #7957ff;
+    --secondary: #13c9e8;
+    --text: #ffffff;
+    --muted: #a1a9bd;
+    --border: rgba(121, 87, 255, .25);
+}
+
+/* ===== RESET ===== */
+
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== FUNDO ===== */
+
 body {
     margin: 0;
-    background-color: #eeeeee;
-    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(121, 87, 255, .18), transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(19, 201, 232, .12), transparent 40%),
+        var(--background);
+
+    font-family: 'Segoe UI', Arial, sans-serif;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     min-height: 100vh;
+    padding: 25px;
+    color: var(--text);
 }
+
+/* ===== FORMULÁRIO ===== */
 
 .formulario {
-    width: 450px;
-    padding: 30px;
+    position: relative;
 
-    background-color: white;
-    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 35px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(25, 32, 52, .98),
+        rgba(13, 18, 32, .98)
+    );
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .45),
+        0 0 30px rgba(121, 87, 255, .08);
+
+    overflow: hidden;
+
+    animation: aparecer .7s ease both;
 }
+
+/* Linha neon superior */
+
+.formulario::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--secondary),
+        transparent
+    );
+}
+
+/* ===== TÍTULO ===== */
 
 .formulario h1 {
     text-align: center;
+
+    margin-top: 5px;
+    margin-bottom: 25px;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    letter-spacing: -.8px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #a78bfa,
+        #13c9e8
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+/* ===== TIPO DE CORRIDA ===== */
 
 .corrida {
     text-align: center;
-    color: red;
+
+    color: var(--secondary);
+
     font-weight: bold;
+    font-size: 14px;
+
+    margin-bottom: 25px;
+
+    padding: 10px;
+
+    background: rgba(19, 201, 232, .08);
+
+    border: 1px solid rgba(19, 201, 232, .2);
+    border-radius: 9px;
 }
+
+/* ===== FORM ===== */
 
 form {
     display: flex;
     flex-direction: column;
 }
 
+/* ===== LABELS ===== */
+
 label {
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+
+    color: #e4e8f5;
+
+    font-size: 13px;
+    font-weight: 700;
 }
+
+/* ===== CAMPOS ===== */
 
 input,
 select {
-    padding: 12px;
-    margin-bottom: 15px;
+    width: 100%;
 
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 13px 15px;
+    margin-bottom: 19px;
 
-    font-size: 15px;
-}
+    background: #0b1020;
 
-button {
-    padding: 13px;
+    border: 1px solid #303951;
+    border-radius: 10px;
 
-    background-color: red;
     color: white;
 
-    border: none;
-    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
 
-    font-size: 16px;
-    font-weight: bold;
+    outline: none;
+
+    transition: all .3s ease;
+}
+
+/* Placeholder */
+
+input::placeholder {
+    color: #68738c;
+}
+
+/* Foco */
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(121, 87, 255, .12),
+        0 0 15px rgba(121, 87, 255, .12);
+
+    background: #10172b;
+}
+
+/* Opções do select */
+
+select option {
+    background: #131a2b;
+    color: white;
+}
+
+/* ===== BOTÃO ===== */
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 5px;
+
+    background: linear-gradient(
+        120deg,
+        var(--primary),
+        #386dff
+    );
+
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 800;
 
     cursor: pointer;
+
+    transition: all .3s ease;
+
+    box-shadow: 0 5px 20px rgba(121, 87, 255, .2);
 }
 
 button:hover {
-    background-color: darkred;
+    transform: translateY(-3px);
+
+    background: linear-gradient(
+        120deg,
+        #9879ff,
+        var(--secondary)
+    );
+
+    box-shadow: 0 8px 25px rgba(121, 87, 255, .35);
 }
+
+button:active {
+    transform: scale(.98);
+}
+
+/* ===== MENSAGEM DE SUCESSO ===== */
 
 .sucesso {
-    padding: 12px;
-    margin-bottom: 20px;
+    padding: 14px;
+    margin-bottom: 22px;
 
-    background-color: #d4edda;
-    color: #155724;
+    background: rgba(34, 197, 94, .12);
 
-    border-radius: 8px;
+    color: #86efac;
+
+    border: 1px solid rgba(34, 197, 94, .3);
+    border-radius: 10px;
+
     text-align: center;
+
+    font-size: 14px;
+    font-weight: 600;
 }
+
+/* ===== LINK VOLTAR ===== */
 
 .voltar {
     display: block;
-    margin-top: 20px;
+
+    margin-top: 23px;
 
     text-align: center;
-    color: #333;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    font-weight: 600;
+
     text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.voltar:hover {
+    color: var(--secondary);
+}
+
+/* ===== ANIMAÇÃO ===== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .formulario {
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+
+    .formulario h1 {
+        font-size: 24px;
+    }
+
+    input,
+    select {
+        padding: 12px;
+    }
+}
+
+/* ===== SELEÇÃO ===== */
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        var(--primary),
+        var(--secondary)
+    );
+
+    border-radius: 10px;
 }

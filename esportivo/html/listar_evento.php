@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once '../funcoes.php';
+verificarLogin();
 
 
 $eventos = listarEvento($conexao);
