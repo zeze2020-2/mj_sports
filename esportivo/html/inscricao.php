@@ -14,7 +14,7 @@ if (isset($_POST['enviar'])) {
     if (isset($inscrever)){
         header('location: perfil.php' );
 
-    } else{
+    } else {
 
         alert('Erro');
     }
