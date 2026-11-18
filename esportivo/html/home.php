@@ -51,7 +51,7 @@ if ($selecionada !== '') {
     <nav>
         <ul>
             <li><a href="evento/cad_eventos.php">Criar Evento</a></li>
-            <li><a href="evento/listar_evento.php">Ver eventos</a></li>
+            <li><a href="listar_evento.php">Ver eventos</a></li>
             <li><a href="perfil.php">Ver perfil</a></li>
         </ul>
     </nav>

@@ -15,6 +15,13 @@ if (isset($_POST['cpf'])) {
 
     $sucesso = login($conexao, $cpf, $senha);
 
+    // if ($sucesso) {
+    // echo "Login OK"; var_dump($_SESSION); 
+    // exit;
+
+    // } else {
+    //         echo "Login falhou"; exit;
+    // }
     if ($sucesso) {
 
         header("Location: home.php");
@@ -69,7 +76,7 @@ if (isset($_POST['cpf'])) {
 
             </div>
 
-            <form action="" method="POST">
+            <form action= "" method="POST">
 
                 <div class="campo">
 

@@ -2,9 +2,9 @@
 require_once 'conexao.php';
 session_start();
 require_once "funcoes.php";
-verificarLogin();
+// verificarLogin();
 
-$usuario_id = $_SESSION['id'];
+$usuario_id = $_SESSION['usuario_id'];
 $evento_id = $_GET['id'];
 
 if (isset($_POST['enviar'])) {
@@ -16,7 +16,7 @@ if (isset($_POST['enviar'])) {
 
     } else {
 
-        alert('Erro');
+        // alert('Erro');
     }
     
 }

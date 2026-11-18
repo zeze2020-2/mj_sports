@@ -19,7 +19,7 @@ USE `banco` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `banco`.`usuario` (
   `usuario_id` INT NOT NULL AUTO_INCREMENT,
-  `usuario_cpf` VARCHAR(14) NOT NULL, UNIQUE,
+  `usuario_cpf` VARCHAR(14) NOT NULL UNIQUE,
   `usuario_nome` VARCHAR(90) NOT NULL,
   `usuario_nascimento` DATE NOT NULL,
   `usuario_sexo` VARCHAR(50) NOT NULL,

@@ -1,12 +1,14 @@
 <?php
 session_start();
+
 require_once "conexao.php";
 require_once "funcoes.php";
 
-verificarLogin();
-$id = $_SESSION['id'];
-$eventos = eventosUsuario($conexao, $id);
+//verificarLogin();
 
+$id = $_SESSION['usuario_id'];
+
+$eventos = eventosUsuario($conexao, $id);
 ?>
 
 <!DOCTYPE html>
