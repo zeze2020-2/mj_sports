@@ -1,358 +1,225 @@
-/* ==========================================
-   FORMULÁRIO - OXYSCRONO PREMIUM STYLE
-========================================== */
-
-:root {
-    --background: #080a12;
-    --card: #131a2b;
-    --primary: #7957ff;
-    --secondary: #13c9e8;
-    --text: #ffffff;
-    --muted: #a1a9bd;
-    --border: rgba(121, 87, 255, .25);
-}
-
-/* ===== RESET ===== */
+/* =========================================================
+   MJ SPORTS - INSCRICAO NO EVENTO (ESTILIZADO BASEADO NO INDEX)
+   SEM EMOJIS - DESIGN SYSTEM MJ SPORTS
+========================================================= */
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-/* ===== FUNDO ===== */
-
 body {
-    margin: 0;
-
-    background:
-        radial-gradient(circle at 15% 20%, rgba(121, 87, 255, .18), transparent 40%),
-        radial-gradient(circle at 85% 80%, rgba(19, 201, 232, .12), transparent 40%),
-        var(--background);
-
-    font-family: 'Segoe UI', Arial, sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    background: #101010;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
-    padding: 25px;
-    color: var(--text);
-}
-
-/* ===== FORMULÁRIO ===== */
-
-.formulario {
-    position: relative;
-
-    width: 100%;
-    max-width: 450px;
-
-    padding: 35px;
-
-    background: linear-gradient(
-        145deg,
-        rgba(25, 32, 52, .98),
-        rgba(13, 18, 32, .98)
-    );
-
-    border: 1px solid var(--border);
-    border-radius: 20px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, .45),
-        0 0 30px rgba(121, 87, 255, .08);
-
-    overflow: hidden;
-
-    animation: aparecer .7s ease both;
-}
-
-/* Linha neon superior */
-
-.formulario::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 15%;
-
-    width: 70%;
-    height: 3px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--primary),
-        var(--secondary),
-        transparent
-    );
-}
-
-/* ===== TÍTULO ===== */
-
-.formulario h1 {
-    text-align: center;
-
-    margin-top: 5px;
-    margin-bottom: 25px;
-
-    font-size: 28px;
-    font-weight: 800;
-
-    letter-spacing: -.8px;
-
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #a78bfa,
-        #13c9e8
-    );
-
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ===== TIPO DE CORRIDA ===== */
-
-.corrida {
-    text-align: center;
-
-    color: var(--secondary);
-
-    font-weight: bold;
-    font-size: 14px;
-
-    margin-bottom: 25px;
-
-    padding: 10px;
-
-    background: rgba(19, 201, 232, .08);
-
-    border: 1px solid rgba(19, 201, 232, .2);
-    border-radius: 9px;
-}
-
-/* ===== FORM ===== */
-
-form {
     display: flex;
     flex-direction: column;
 }
 
-/* ===== LABELS ===== */
-
-label {
-    margin-bottom: 8px;
-
-    color: #e4e8f5;
-
-    font-size: 13px;
-    font-weight: 700;
+/* ===== CABECALHO ===== */
+header {
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    background: #080808;
+    border-bottom: 2px solid #ff6b00;
 }
 
-/* ===== CAMPOS ===== */
-
-input,
-select {
-    width: 100%;
-
-    padding: 13px 15px;
-    margin-bottom: 19px;
-
-    background: #0b1020;
-
-    border: 1px solid #303951;
-    border-radius: 10px;
-
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 2px;
     color: white;
-
-    font-family: inherit;
-    font-size: 14px;
-
-    outline: none;
-
-    transition: all .3s ease;
+    text-decoration: none;
 }
 
-/* Placeholder */
+.logo span {
+    color: #ff6b00;
+}
+
+/* ===== AREA PRINCIPAL ===== */
+main, .main-inscricao {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 8%;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.95),
+            rgba(0,0,0,.75)
+        ),
+        url("corrida.jpg") center/cover no-repeat;
+}
+
+/* ===== CAIXA DO FORMULARIO ===== */
+form {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+    background: rgba(18, 18, 18, 0.96);
+    border: 1px solid #333;
+    border-top: 4px solid #ff6b00;
+    border-radius: 12px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+    margin: 40px auto;
+    position: relative;
+}
+
+/* Titulos e Textos dentro do Formulario */
+.form-titulo {
+    margin-bottom: 25px;
+}
+
+.subtitulo {
+    color: #ff6b00;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+form h1 {
+    font-size: 28px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+form h1 span {
+    color: #ff6b00;
+}
+
+form p.descricao {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Rotulos */
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #ff6b00;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+label:first-of-type {
+    margin-top: 0;
+}
+
+/* Inputs e Select */
+input, select {
+    width: 100%;
+    padding: 15px;
+    background: #202020;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input:focus, select:focus {
+    border-color: #ff6b00;
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.35);
+    background: #252525;
+}
 
 input::placeholder {
-    color: #68738c;
+    color: #777;
 }
 
-/* Foco */
-
-input:focus,
-select:focus {
-    border-color: var(--primary);
-
-    box-shadow:
-        0 0 0 3px rgba(121, 87, 255, .12),
-        0 0 15px rgba(121, 87, 255, .12);
-
-    background: #10172b;
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff6b00'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px;
 }
-
-/* Opções do select */
 
 select option {
-    background: #131a2b;
+    background: #181818;
     color: white;
+    padding: 10px;
 }
 
-/* ===== BOTÃO ===== */
-
-button {
+/* Botao de Confirmar */
+button[type="submit"] {
     width: 100%;
-
-    padding: 14px;
-
-    margin-top: 5px;
-
-    background: linear-gradient(
-        120deg,
-        var(--primary),
-        #386dff
-    );
-
+    margin-top: 28px;
+    padding: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: #ff6b00;
+    border: none;
+    border-radius: 6px;
     color: white;
-
-    border: 1px solid rgba(255, 255, 255, .12);
-    border-radius: 10px;
-
-    font-size: 15px;
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: all .3s ease;
-
-    box-shadow: 0 5px 20px rgba(121, 87, 255, .2);
-}
-
-button:hover {
-    transform: translateY(-3px);
-
-    background: linear-gradient(
-        120deg,
-        #9879ff,
-        var(--secondary)
-    );
-
-    box-shadow: 0 8px 25px rgba(121, 87, 255, .35);
-}
-
-button:active {
-    transform: scale(.98);
-}
-
-/* ===== MENSAGEM DE SUCESSO ===== */
-
-.sucesso {
-    padding: 14px;
-    margin-bottom: 22px;
-
-    background: rgba(34, 197, 94, .12);
-
-    color: #86efac;
-
-    border: 1px solid rgba(34, 197, 94, .3);
-    border-radius: 10px;
-
-    text-align: center;
-
     font-size: 14px;
-    font-weight: 600;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* ===== LINK VOLTAR ===== */
+button[type="submit"]:hover {
+    background: white;
+    color: #111;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 0, 0.35);
+}
 
+/* Link de Retorno */
 .voltar {
-    display: block;
-
-    margin-top: 23px;
-
+    display: inline-block;
+    width: 100%;
     text-align: center;
-
-    color: var(--muted);
-
+    margin-top: 22px;
+    color: #888;
     font-size: 13px;
-    font-weight: 600;
-
     text-decoration: none;
-
-    transition: .3s ease;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 .voltar:hover {
-    color: var(--secondary);
+    color: #ff6b00;
 }
 
-/* ===== ANIMAÇÃO ===== */
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(25px) scale(.98);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+/* ===== RODAPE ===== */
+footer {
+    padding: 24px;
+    text-align: center;
+    background: #080808;
+    border-top: 1px solid #222;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-/* ===== RESPONSIVIDADE ===== */
-
-@media (max-width: 500px) {
-
-    body {
-        padding: 15px;
+@media (max-width: 600px) {
+    form {
+        padding: 30px 20px;
     }
-
-    .formulario {
-        padding: 25px 20px;
-        border-radius: 16px;
-    }
-
-    .formulario h1 {
-        font-size: 24px;
-    }
-
-    input,
-    select {
-        padding: 12px;
-    }
-}
-
-/* ===== SELEÇÃO ===== */
-
-::selection {
-    background: var(--primary);
-    color: white;
-}
-
-/* ===== SCROLLBAR ===== */
-
-::-webkit-scrollbar {
-    width: 7px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        var(--primary),
-        var(--secondary)
-    );
-
-    border-radius: 10px;
 }

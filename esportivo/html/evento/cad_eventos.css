@@ -1,19 +1,7 @@
-
-/* ==========================================
-   OXYS CRONO - SPORT PREMIUM
-   FORMULÁRIO DE CADASTRO
-========================================== */
-
-:root {
-    --background: #080d18;
-    --surface: #111b2b;
-    --surface-hover: #19283c;
-    --primary: #087cff;
-    --secondary: #00d4ff;
-    --text: #ffffff;
-    --muted: #a6b4c8;
-    --border: rgba(0, 160, 255, .2);
-}
+/* =========================================================
+   MJ SPORTS - CADASTRO DE EVENTO (ESTILIZADO BASEADO NO INDEX)
+   SEM EMOJIS - DESIGN SYSTEM MJ SPORTS
+========================================================= */
 
 * {
     margin: 0;
@@ -21,269 +9,254 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
+    background: #101010;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
-    padding: 40px 15px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+/* ===== CABECALHO ===== */
+header {
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
     align-items: center;
-    background: var(--background);
-    color: var(--text);
-    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #080808;
+    border-bottom: 2px solid #ff6b00;
 }
 
-/* ===== CONTAINER ===== */
-
-.container {
-    width: 100%;
-    max-width: 650px;
-    padding: 35px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
-    position: relative;
-    overflow: hidden;
-    animation: entrada .5s ease both;
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+    text-decoration: none;
 }
 
-.container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(
-        90deg,
-        var(--primary),
-        var(--secondary)
-    );
+.logo span {
+    color: #ff6b00;
 }
 
-/* ===== CABEÇALHO ===== */
-
-.form-header {
+/* ===== MENSAGENS DO PHP ===== */
+.mensagem-feedback {
+    max-width: 620px;
+    margin: 25px auto 0;
+    padding: 16px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
     text-align: center;
+    background: #181818;
+    border-left: 4px solid #ff6b00;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.mensagem-sucesso {
+    color: #4ade80;
+    border-left-color: #22c55e;
+}
+
+.mensagem-erro {
+    color: #f87171;
+    border-left-color: #ef4444;
+}
+
+/* ===== FORMULARIO ===== */
+form {
+    width: 100%;
+    max-width: 620px;
+    margin: 40px auto 60px;
+    padding: 40px;
+    background: rgba(18, 18, 18, 0.96);
+    border: 1px solid #333;
+    border-top: 4px solid #ff6b00;
+    border-radius: 12px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+}
+
+.form-titulo {
     margin-bottom: 30px;
+    text-align: left;
 }
 
 .subtitulo {
-    display: inline-block;
-    color: var(--secondary);
+    color: #ff6b00;
     font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
 }
 
-.form-header h1 {
-    color: white;
-    font-size: 30px;
-    font-weight: 800;
+form h1 {
+    font-size: 28px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     margin-bottom: 10px;
 }
 
-.form-header p {
-    color: var(--muted);
+form h1 span {
+    color: #ff6b00;
+}
+
+form p.descricao {
+    color: #aaa;
     font-size: 14px;
     line-height: 1.6;
 }
 
-/* ===== CAMPOS ===== */
-
-.campo {
+/* Campos e Paragrafos */
+form > p {
     margin-bottom: 20px;
 }
 
-.campo label {
+label {
     display: block;
-    color: #dce8f7;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 9px;
+    color: #ff6b00;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
-/* ===== INPUTS ===== */
-
-.campo input,
-.campo select {
-    width: 100%;
-    height: 46px;
-    padding: 0 14px;
-    background: #080f1d;
-    color: white;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: 14px;
-    outline: none;
-    transition: .3s ease;
-}
-
-.campo input::placeholder {
-    color: #718198;
-}
-
-.campo input:focus,
-.campo select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(8, 124, 255, .13);
-    background: #0c1728;
-}
-
-/* ===== SELECT ===== */
-
-.campo select {
-    cursor: pointer;
-}
-
-.campo select option {
-    background: var(--surface);
-    color: white;
-}
-
-/* ===== INPUT DE ARQUIVO ===== */
-
-.campo input[type="file"] {
-    height: auto;
-    min-height: 48px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.campo input[type="file"]::file-selector-button {
-    padding: 9px 14px;
-    margin-right: 12px;
-    background: linear-gradient(135deg, #087cff, #0061d5);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: .3s ease;
-}
-
-.campo input[type="file"]::file-selector-button:hover {
-    background: linear-gradient(135deg, #00a9ff, #00c8ed);
-}
-
-/* ===== BOTÃO ===== */
-
-button {
+input[type="text"],
+input[type="date"],
+select {
     width: 100%;
     padding: 15px;
-    margin-top: 8px;
-    background: linear-gradient(135deg, #087cff, #0061d5);
+    background: #202020;
+    border: 1px solid #444;
+    border-radius: 6px;
     color: white;
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 7px;
-    font-size: 14px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .7px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #ff6b00;
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.35);
+    background: #252525;
+}
+
+select {
     cursor: pointer;
-    transition: .3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff6b00'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px;
 }
 
-button:hover {
-    background: linear-gradient(135deg, #00a9ff, #00c8ed);
-    transform: translateY(-3px);
-    box-shadow: 0 7px 20px rgba(0, 124, 255, .3);
+select option {
+    background: #181818;
+    color: white;
+    padding: 10px;
 }
 
-/* ===== MENSAGENS ===== */
-
-.mensagem {
-    max-width: 650px;
+/* Upload de Arquivo */
+input[type="file"] {
     width: 100%;
-    margin: 0 auto 20px;
-    padding: 13px;
-    border-radius: 7px;
-    text-align: center;
-    font-weight: 700;
+    padding: 14px;
+    background: #202020;
+    border: 1px dashed #555;
+    border-radius: 6px;
+    color: #aaa;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.sucesso {
-    background: rgba(0, 200, 120, .12);
-    color: #00e69a;
-    border: 1px solid rgba(0, 230, 154, .3);
-}
-
-.erro {
-    background: rgba(255, 60, 60, .12);
-    color: #ff7070;
-    border: 1px solid rgba(255, 60, 60, .3);
-}
-
-/* ===== ANIMAÇÃO ===== */
-
-@keyframes entrada {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== SELEÇÃO ===== */
-
-::selection {
-    background: var(--primary);
+input[type="file"]:hover {
+    border-color: #ff6b00;
     color: white;
 }
 
-/* ===== SCROLLBAR ===== */
-
-::-webkit-scrollbar {
-    width: 7px;
+/* Pre-visualizacao de imagem */
+.preview-container {
+    margin-top: 15px;
+    display: none;
+    text-align: center;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--background);
+.preview-imagem {
+    max-width: 100%;
+    max-height: 220px;
+    border-radius: 6px;
+    border: 2px solid #ff6b00;
+    object-fit: cover;
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 10px;
+/* Botao de Cadastro */
+button[type="submit"] {
+    width: 100%;
+    margin-top: 25px;
+    padding: 17px;
+    background: #ff6b00;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* ===== RESPONSIVIDADE ===== */
-
-@media (max-width: 600px) {
-    body {
-        padding: 20px 12px;
-        align-items: flex-start;
-    }
-
-    .container {
-        padding: 25px 18px;
-    }
-
-    .form-header h1 {
-        font-size: 25px;
-    }
-
-    .campo {
-        margin-bottom: 17px;
-    }
+button[type="submit"]:hover {
+    background: white;
+    color: #111;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 0, 0.35);
 }
 
-/* ===== ACESSIBILIDADE ===== */
+/* Link de Retorno */
+.voltar {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 22px;
+    color: #888;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
+.voltar:hover {
+    color: #ff6b00;
+}
+
+/* ===== RODAPE ===== */
+footer {
+    margin-top: auto;
+    padding: 24px;
+    text-align: center;
+    background: #080808;
+    border-top: 1px solid #222;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 650px) {
+    form {
+        margin: 20px 15px 40px;
+        padding: 30px 20px;
     }
 }

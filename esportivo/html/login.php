@@ -45,6 +45,7 @@ if (isset($_POST['cpf'])) {
     <title>Login | MJ Sports</title>
 
     <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
 </head>
 
 <body>
@@ -75,6 +76,10 @@ if (isset($_POST['cpf'])) {
                 </p>
 
             </div>
+
+            <?php if (!empty($erro)): ?>
+                <div class="mensagem-erro">CPF ou senha incorretos. Tente novamente.</div>
+            <?php endif; ?>
 
             <form action= "" method="POST">
 

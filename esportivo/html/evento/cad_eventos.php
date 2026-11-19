@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="cad_eventos.css">
+<script src="cad_eventos.js" defer></script>
 
 
 

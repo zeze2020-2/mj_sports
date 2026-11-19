@@ -9,6 +9,7 @@
     <title>MJ Sports</title>
 
     <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
 </head>
 
 <body>

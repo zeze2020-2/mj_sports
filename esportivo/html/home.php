@@ -44,6 +44,7 @@ if ($selecionada !== '') {
     <title>Início</title>
 
     <link rel="stylesheet" href="home.css">
+    <script src="home.js" defer></script>
 </head>
 
 <body>

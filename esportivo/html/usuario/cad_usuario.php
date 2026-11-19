@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="cad_usuario.css">
+<script src="cad_usuario.js" defer></script>
+
 <?php
 require_once '../funcoes.php';
 
